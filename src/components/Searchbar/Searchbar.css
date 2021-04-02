@@ -8,6 +8,8 @@
     background-color: var(--searchbar-color);
     border-radius: 4px;
     border:none;
+    color:var(--white);
+    font-family: inherit;
 
 }
 .searchbar button{
@@ -21,3 +23,4 @@
 .search-icon:hover{
     cursor: pointer;
 }
+

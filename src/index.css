@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 :root{
     --theme-color : #18181B;
     --searchbar-color :#464649;
+    --sidebar-theme:#1F1F23
 }
 
 body {
@@ -10,6 +12,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--theme-color);
+  color:white
 }
 
 code {
@@ -17,3 +21,6 @@ code {
     monospace;
 }
 
+body{
+  font-family: 'Montserrat', sans-serif;
+}
