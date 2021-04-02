@@ -3,6 +3,7 @@
     /* border:1px solid red; */
     padding: 0 1rem 0 1rem;
     text-align: left;
+    width:10rem;
     height: 100%;
     position: fixed;
     /* z-index: 1; */
@@ -16,7 +17,7 @@
 }
 .div-list-item{
     border-radius: 4px;
-
+    
    
 }
 .div-list-item:hover{
@@ -30,6 +31,6 @@
     padding: 0.5rem;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
 
 }

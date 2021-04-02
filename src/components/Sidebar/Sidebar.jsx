@@ -9,14 +9,17 @@ export function Sidebar({ showSideBar }) {
             <ul className='sidebar-list' >
                 <div className="div-list-item">
 
-                    <li className="sidebar-list-item"><span class="material-icons">
+                    <li className="sidebar-list-item"><span className="material-icons">
                         bookmark
                     </span>Saved</li>
                 </div>
-                <div className="div-list-item"><li className="sidebar-list-item"><span class="material-icons">
-                    list
-</span>Playlists</li></div>
-
+                <div className="div-list-item">
+                    <li className="sidebar-list-item">
+                        <span className="material-icons">
+                            list
+                        </span>Playlists
+                    </li>
+                </div>
             </ul>
         </div>
     )
