@@ -1,11 +1,40 @@
 .navbar{
     display:flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    align-items: flex-end;
+    justify-content: space-between;
+    align-items: center;
+    /* margin:0.5rem;*/
+    padding:0.5rem; 
+    /* border:1px solid red; */
+    background-color: var(--theme-color);
+    /* position: fixed;  */
+    /* left: 0; */
+    /* width: 100%; */
+    color:white;
+    
 }
-.searchbar input{
-    width: 600px;
-    margin:1rem;
-    padding:1rem;
+.navbar-left{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1.25rem;
+}
+.burger-icon{
+    padding-right:0.5rem;
+}
+.burger-icon:hover{
+    cursor: pointer;
+}
+.navbar-right{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+
+@media screen and (min-width : 768px){
+    .searchbar input{
+        width:300px;
+    }
 }

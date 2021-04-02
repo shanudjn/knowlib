@@ -1,17 +1,25 @@
 import "./Navbar.css"
+import { Searchbar } from '../Searchbar/Searchbar'
 
 export function Navbar() {
     return (
         <>
             <div className="navbar">
-                <div className="navbar-right">KnowLib</div>
-                <div className="searchbar">
-                    <input type="text" />
-                    <span class="material-icons">
-                        search
+                <div className="navbar-left">
+                    <span className="material-icons burger-icon">
+                        menu
+                    </span>
+                    <span>
+                        KnowLib
                     </span>
                 </div>
-                <div className="navbar-right"></div>
+                <Searchbar />
+                <div className="navbar-right">
+                    <span className="material-icons">
+                        person_outline
+                    </span>
+
+                </div>
             </div>
         </>
     )
