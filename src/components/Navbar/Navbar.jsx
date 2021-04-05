@@ -4,7 +4,7 @@ import { Sidebar } from '../Sidebar/Sidebar';
 import { useState } from "react"
 
 export function Navbar() {
-    const [showSideBar, setShowSideBar] = useState(false);
+    const [showSideBar, setShowSideBar] = useState(true);
 
     function handleShowSidebar() {
         setShowSideBar(showSideBar => !showSideBar);

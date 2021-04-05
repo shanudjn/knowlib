@@ -1,0 +1,35 @@
+.video-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr ;
+    /* border:1px solid yellow; */
+    /* justify-content: center ; */
+    /* max-width: 800px; */
+    padding:0 5rem 0 5rem; 
+    position: relative;
+    /* left:5rem; */
+     
+    
+}
+.thumbnail{
+    width: 100%;
+    height: auto;
+    /* padding: 0.25rem; */
+}
+.video-card{
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+}
+.channel-details{
+    font-size: 0.75rem;
+    text-align: left;
+}
+
+
+@media screen and (max-width:768px) {
+    .video-grid{
+        display: grid;
+        grid-template-columns: 2fr 2fr;
+        padding: 0;
+    }
+}
