@@ -5,32 +5,6 @@
     position: relative;
  
 }
-.thumbnail{
-    width: 100%;
-    height: auto;
-    /* padding: 0.25rem; */
-}
-.video-card{
-    display: flex;
-    flex-direction: column;
-    padding: 0.5rem;
-}
-.channel-details{
-    font-size: 0.75rem;
-    text-align: left;
-}
-.title{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.title:hover{
-    cursor: pointer;
-}
-.link{
-    text-decoration: none;
-}
-
 @media screen and (max-width:768px) {
     .video-grid{
         display: grid;

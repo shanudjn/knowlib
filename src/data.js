@@ -34,7 +34,7 @@ export const videoList = [
         title: "The Dark World of New Age Gurus | Documentary.",
         url: "https://youtu.be/yyktccr5apU",
         channelName: "James Jani",
-        videoThumbnail: "https://i.ytimg.com/an_webp/yyktccr5apU/mqdefault_6s.webp?du=3000&sqp=CMycqoMG&rs=AOn4CLAJ4rpbvjpzq3Xr8AM4rnsSAjQLfQ",
+        videoThumbnail: "https://i.ytimg.com/vi/yyktccr5apU/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDiEbNXCc2m5tYuuoXryl4Wrop2qQ",
         category: "video-essay",
         channelImage: "https://yt3.ggpht.com/ytc/AAUvwnhUW-Pp4de6P_dJ-bYc3v5vhBWM9Nb8tYHcaefKVQ=s68-c-k-c0x00ffffff-no-rj"
 

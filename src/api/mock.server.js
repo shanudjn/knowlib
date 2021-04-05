@@ -10,8 +10,11 @@ export function TestingMock() {
 export default function mockServer() {
     createServer({
         models: {
-            product: Model
+            product: Model,
+            saved: Model,
+
         },
+
         seeds(server) {
             [...Array(50)].forEach(item => {
                 server.create("product", {
@@ -47,10 +50,13 @@ export default function mockServer() {
                     color: faker.commerce.color()
                 })
             })
+
         },
 
         routes() {
-            this.get('/api/products')
+            this.namespace = "api";
+            this.timing = 3000;
+            this.resource("saved");
         },
     })
 }
