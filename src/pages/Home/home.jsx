@@ -9,7 +9,7 @@ export function Home() {
 
     const { value } = useVideo();
     console.log(value)
-    console.log("1", videoList)
+
     return (
         <>
             <Topics />
@@ -22,4 +22,3 @@ export function Home() {
         </>
     )
 }
-//id, title, url, videoThumbnail, channelName, category, channelImage

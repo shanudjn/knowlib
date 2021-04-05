@@ -1,21 +1,24 @@
 import './VideoCard.css'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { useVideo } from '../../context/video-context';
 
-export function VideoCard({ video: { id, title, url, videoThumbnail, channelName, category, channelImage } }) {
-    // console.log(video)
 
+export function VideoCard({ video }) {
+
+    const { saved, dispatch } = useVideo()
+    console.log("saved", saved)
     return (
-        <div className="video-card" key={id} onClick={() => console.log("Hello")}>
-            <Link to={`/videopage/${id}`} className="link"><div><img src={videoThumbnail} alt="thumbnail" className="thumbnail" /></div></Link>
+        <div className="video-card" key={video.id} onClick={() => console.log("Hello")}>
+            <Link to={`/videopage/${video.id}`} className="link"><div><img src={video.videoThumbnail} alt="thumbnail" className="thumbnail" /></div></Link>
             <div className="div-video-details">
                 <div className="channel-details">
                     <div className="title">
-                        <Link to={`/videopage/${id}`} className="link"><p>{title}</p></Link>
-                        <span className="material-icons" onClick={() => console.log("add to watch later")}>
+                        <Link to={`/videopage/${video.id}`} className="link"><p>{video.title}</p></Link>
+                        <span className="material-icons" onClick={() => dispatch({ type: "ADD_TO_SAVED_LIST", payload: video })}>
                             watch_later
                                         </span>
                     </div>
-                    <p>{channelName}</p>
+                    <p>{video.channelName}</p>
                 </div>
             </div>
         </div>

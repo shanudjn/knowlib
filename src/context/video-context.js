@@ -1,10 +1,17 @@
-import { useContext, createContext } from "react";
+import { useContext, createContext, useReducer } from "react";
+import { savedReducer } from "../reducer/saved-reducer";
 
 
 const VideoContext = createContext();
 
+
+
 export function VideoProvider({ children }) {
-    return <VideoContext.Provider value={{ value: "test" }}>
+
+    const saved = [];
+
+    const [state, dispatch] = useReducer(savedReducer, { saved })
+    return <VideoContext.Provider value={{ saved: state.saved, dispatch }}>
         {children}
     </VideoContext.Provider>
 }

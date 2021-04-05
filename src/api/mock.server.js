@@ -3,9 +3,9 @@ import faker from "faker";
 
 faker.seed(123);
 
-export function TestingMock() {
-    console.log("Inside Mock Server")
-}
+// export function TestingMock() {
+//     console.log("Inside Mock Server")
+// }
 
 export default function mockServer() {
     createServer({
@@ -14,7 +14,15 @@ export default function mockServer() {
             saved: Model,
 
         },
+        routes() {
+            this.namespace = "api";
+            this.timing = 1000;
 
+            this.post('/saved', (schema, request) => {
+                let attrs = JSON.parse(request.requestBody).video;
+                return schema.saved.create(attrs);
+            })
+        },
         seeds(server) {
             [...Array(50)].forEach(item => {
                 server.create("product", {
@@ -53,10 +61,6 @@ export default function mockServer() {
 
         },
 
-        routes() {
-            this.namespace = "api";
-            this.timing = 3000;
-            this.resource("saved");
-        },
+
     })
 }
