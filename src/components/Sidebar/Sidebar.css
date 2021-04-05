@@ -17,11 +17,16 @@
 }
 .div-list-item{
     border-radius: 4px;
-    
-   
+       
+}
+.div-list-item a{
+    text-decoration: none;
+    color: var(--white);
 }
 .div-list-item:hover{
     background-color: var(--searchbar-color);
+    cursor: pointer;
+    
 }
 .sidebar-list-item{
     list-style: none;

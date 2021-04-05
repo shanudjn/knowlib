@@ -1,4 +1,5 @@
 import './Sidebar.css';
+import { Link } from 'react-router-dom'
 
 
 
@@ -9,16 +10,16 @@ export function Sidebar({ showSideBar }) {
             <ul className='sidebar-list' >
                 <div className="div-list-item">
 
-                    <li className="sidebar-list-item"><span className="material-icons">
+                    <Link to='/saved'><li className="sidebar-list-item"><span className="material-icons">
                         bookmark
-                    </span>Saved</li>
+                    </span>Saved</li></Link>
                 </div>
                 <div className="div-list-item">
-                    <li className="sidebar-list-item">
+                    <Link to='/saved'><li className="sidebar-list-item">
                         <span className="material-icons">
                             list
                         </span>Playlists
-                    </li>
+                    </li></Link>
                 </div>
             </ul>
         </div>

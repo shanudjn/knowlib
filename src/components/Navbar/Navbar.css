@@ -16,6 +16,10 @@
     border-bottom:2px solid var(--sidebar-theme)
     
 }
+.link{
+    text-decoration:none;
+    color: var(--white);
+}
 .navbar-left{
     display: flex;
     flex-direction: row;

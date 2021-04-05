@@ -1,7 +1,6 @@
 .video-grid{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr ;
-    
+    grid-template-columns: 1fr 1fr 1fr 1fr ;    
     padding:0 5rem 0 5rem; 
     position: relative;
  
@@ -20,7 +19,17 @@
     font-size: 0.75rem;
     text-align: left;
 }
-
+.title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.title:hover{
+    cursor: pointer;
+}
+.link{
+    text-decoration: none;
+}
 
 @media screen and (max-width:768px) {
     .video-grid{

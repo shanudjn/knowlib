@@ -1,4 +1,5 @@
 import "./Navbar.css"
+import { Link } from 'react-router-dom';
 import { Searchbar } from '../Searchbar/Searchbar';
 import { Sidebar } from '../Sidebar/Sidebar';
 import { useState } from "react"
@@ -19,9 +20,10 @@ export function Navbar() {
                     >
                         menu
                     </span>
-                    <span>
+                    <Link to="/" className="link"><span>
                         KnowLib
                     </span>
+                    </Link>
                 </div>
                 <Searchbar />
                 <div className="navbar-right">
