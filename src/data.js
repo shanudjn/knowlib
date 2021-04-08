@@ -1,3 +1,5 @@
+import { v4 } from 'uuid'
+
 export const videoList = [
     {
         id: "6HN3G2lOAi0",
@@ -68,9 +70,44 @@ export const videoList = [
         category: "comedy",
         channelImage: "https://yt3.ggpht.com/ytc/AAUvwnhUW-Pp4de6P_dJ-bYc3v5vhBWM9Nb8tYHcaefKVQ=s68-c-k-c0x00ffffff-no-rj"
     },
+]
 
+export const playlist = [
+    {
+        id: v4(),
+        name: "video-essay"
+    },
+    {
+        id: v4(),
+        name: "comedy"
+    }
+]
 
-
-
-
+export const notesList = [
+    {
+        id: "K0swOpFKMf8",
+        notes: [
+            {
+                id: v4(),
+                notes: "I killed Captain America"
+            },
+            {
+                id: v4(),
+                notes: "Dread It Run from it. Destiny Still Arrives"
+            }
+        ]
+    },
+    {
+        id: "4QMai1tWuyM",
+        notes: [
+            {
+                id: v4(),
+                notes: "I killed Iron Spider"
+            },
+            {
+                id: v4(),
+                notes: "Dread It Run from it"
+            }
+        ]
+    }
 ]

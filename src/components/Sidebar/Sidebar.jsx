@@ -15,7 +15,7 @@ export function Sidebar({ showSideBar }) {
                     </span>Saved</li></Link>
                 </div>
                 <div className="div-list-item">
-                    <Link to='/saved'><li className="sidebar-list-item">
+                    <Link to='/playlist'><li className="sidebar-list-item">
                         <span className="material-icons">
                             list
                         </span>Playlists

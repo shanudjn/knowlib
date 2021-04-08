@@ -1,0 +1,17 @@
+.modal{
+    border:1px solid red; 
+    position:fixed;
+    
+    top:50%; 
+    left:0;
+    margin:auto; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: var(--sidebar-theme);
+    z-index: 100;
+}
+.hide{
+    display: none;
+}

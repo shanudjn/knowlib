@@ -1,16 +1,24 @@
-import axios from 'axios';
-async function addToSaved(video) {
-    const response = await axios.post('/api/saved');
-    console.log({ response })
-}
+import { v4 } from "uuid";
+import { playlist } from "../data";
+
+
+
 
 export function savedReducer(state, action) {
 
     switch (action.type) {
         case "ADD_TO_SAVED_LIST":
-            addToSaved(action.payload);
+
+
             return {
                 ...state,
+                savedList: [...state.savedList, action.payload]
+            }
+        case "ADD_PLAYLIST":
+            console.log("Inside Add Playlist", action.payload)
+            return {
+                ...state,
+                playlist: [...playlist, { id: v4(), name: action.payload }]
             }
 
 
