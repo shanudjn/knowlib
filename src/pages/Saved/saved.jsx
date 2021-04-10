@@ -1,19 +1,12 @@
-import './saved.css'
-import { useEffect } from 'react';
+import './saved.css';
+
 import { useVideo } from '../../context/video-context'
-import axios from 'axios';
+
 
 export function Saved() {
 
-    const { saved, dispatch } = useVideo();
+    const { saved } = useVideo();
     console.log(saved)
-
-    // async function getSavedList() {
-    //     const response = await axios.get('/api/savedList');
-    //     console.log(response.data.savedList)
-    // }
-
-    // useEffect(() => getSavedList(), [])
 
     return (
         <div className="div-saved">

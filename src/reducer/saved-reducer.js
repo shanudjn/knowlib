@@ -1,5 +1,5 @@
 import { v4 } from "uuid";
-import { playlist, videoList } from "../data";
+// import { playlist, videoList } from "../data";
 
 
 
@@ -22,7 +22,7 @@ export function savedReducer(state, action) {
             console.log("Remove from playlist", action.payload);
             return {
                 ...state,
-                videoList: videoList.map((item) => (item.id === action.payload.videoId) ? { ...item, category: "" } : item)
+                videoList: state.videoList.map((item) => (item.id === action.payload.videoId) ? { ...item, category: "" } : item)
             }
 
 

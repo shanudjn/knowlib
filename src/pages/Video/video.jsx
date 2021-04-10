@@ -12,7 +12,7 @@ export function Video() {
 
     let { id } = useParams();
 
-    const { videoList, dispatch } = useVideo();
+    const { videoList } = useVideo();
 
     const [videoDetails, setVideoDetails] = useState({});
 
@@ -24,7 +24,7 @@ export function Video() {
         setVideoDetails(details)
     }
 
-    useEffect(() => getVideoDetails(id), [])
+    useEffect(() => getVideoDetails(id))
 
     console.log(videoList)
     return (

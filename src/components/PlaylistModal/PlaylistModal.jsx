@@ -34,8 +34,8 @@ export function PlaylistModal({ showModal, category, videoId }) {
                     // console.log(playlistItem.id)
                     return (
                         <>
-                            <div key={playlistItem.id} >
-                                <form
+                            <div key={index} >
+                                <div
                                     className='modal-options' >
                                     <label htmlFor={`checkbox ${index}`}>
                                         <input
@@ -48,7 +48,7 @@ export function PlaylistModal({ showModal, category, videoId }) {
                                         {/* {playlistItem.id} */}
                                         {playlistItem.name}
                                     </label>
-                                </form>
+                                </div>
                             </div>
 
                         </>

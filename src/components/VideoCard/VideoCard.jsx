@@ -1,16 +1,11 @@
 import './VideoCard.css'
-import axios from 'axios';
+
 import { Link } from 'react-router-dom';
-import { useVideo } from '../../context/video-context';
-import { useState } from 'react';
-import { PlaylistModal } from '../PlaylistModal/PlaylistModal'
+
+
 
 
 export function VideoCard({ video, handleWatchLater }) {
-    const { saved, dispatch } = useVideo()
-
-
-
     return (
         <>
             <div className="video-card" key={video.id}>
