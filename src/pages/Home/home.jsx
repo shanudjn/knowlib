@@ -1,5 +1,5 @@
 import './home.css';
-import { videoList } from '../../data';
+
 import { useVideo } from '../../context/video-context';
 // import { Link } from 'react-router-dom';
 import { Topics } from '../../components/Topics/Topics'
@@ -15,20 +15,13 @@ export function Home() {
 
     const [category, setCategory] = useState("");
 
-    const { dispatch } = useVideo();
+    const { videoList, dispatch } = useVideo();
 
 
-    function handleShowModal(category) {
-        console.table('inside handleShowModal', category);
-        setShowModal(!showModal)
-        setCategory(category);
-    }
+
     function handleWatchLater(video) {
         console.log(video);
         dispatch({ type: "ADD_TO_SAVED_LIST", payload: video })
-
-
-
     }
 
     console.log("category", category)

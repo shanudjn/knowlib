@@ -85,7 +85,7 @@ export const playlist = [
 
 export const notesList = [
     {
-        id: "K0swOpFKMf8",
+        id: "6HN3G2lOAi0",
         notes: [
             {
                 id: v4(),
@@ -98,6 +98,88 @@ export const notesList = [
         ]
     },
     {
+        id: "K0swOpFKMf8",
+        notes: [
+            {
+                id: v4(),
+                notes: "I killed Iron Spider"
+            },
+            {
+                id: v4(),
+                notes: "Dread It Run from it"
+            }
+        ]
+    }, {
+        id: "HBlZlmXyR5M",
+        notes: [
+            {
+                id: v4(),
+                notes: "I killed Iron Spider"
+            },
+            {
+                id: v4(),
+                notes: "Dread It Run from it"
+            }
+        ]
+    }, {
+        id: "yyktccr5apU",
+        notes: [
+            {
+                id: v4(),
+                notes: "I killed Iron Spider"
+            },
+            {
+                id: v4(),
+                notes: "Dread It Run from it"
+            },
+            {
+                id: v4(),
+                notes: "Dread It Run from it"
+            }, {
+                id: v4(),
+                notes: "Dread It Run from it"
+            }, {
+                id: v4(),
+                notes: "Dread It Run from it"
+            }, {
+                id: v4(),
+                notes: "Dread It Run from it"
+            }, {
+                id: v4(),
+                notes: "Dread It Run from it"
+            }, {
+                id: v4(),
+                notes: "Dread It Run from it"
+            }, {
+                id: v4(),
+                notes: "Dread It Run from it"
+            }
+        ]
+    }, {
+        id: "nS_6c4PyJvg",
+        notes: [
+            {
+                id: v4(),
+                notes: "I killed Iron Spider"
+            },
+            {
+                id: v4(),
+                notes: "Dread It Run from it"
+            }
+        ]
+    }, {
+        id: "IZnTp_iCrRY",
+        notes: [
+            {
+                id: v4(),
+                notes: "I killed Iron Spider"
+            },
+            {
+                id: v4(),
+                notes: "Dread It Run from it"
+            }
+        ]
+    }, {
         id: "4QMai1tWuyM",
         notes: [
             {

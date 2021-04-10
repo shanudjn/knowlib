@@ -1,13 +1,14 @@
 import './PlaylistModal.css';
-// import { playlist } from '../../data';
+
 import { useState } from 'react';
 import { useVideo } from '../../context/video-context';
 
 
-export function PlaylistModal({ showModal, handleShowModal, category }) {
+
+export function PlaylistModal({ showModal, category, videoId }) {
     // console.log(playlist);
 
-    const { playlist, dispatch } = useVideo();
+    const { videoList, playlist, dispatch } = useVideo();
 
     const [modalInput, setModalInput] = useState("");
 
@@ -15,39 +16,41 @@ export function PlaylistModal({ showModal, handleShowModal, category }) {
         e.preventDefault();
         console.log(modalInput);
         dispatch({ type: "ADD_PLAYLIST", payload: modalInput })
+        setModalInput("")
 
     }
-    function isInPlaylist(playlistName, category) {
-        if (playlist.find((item) => item.name === category)) {
-            return true;
-        }
-        return false;
+    function handleCheckbox(playlistName, videoId) {
+        console.log("inside handlecheckbox")
+        dispatch({ type: "REVOME_FROM_PLAYLIST", payload: { playlistName: playlistName, videoId: videoId } })
     }
 
 
-    // console.log(playlist);
+    console.log(videoList);
     return (
         <div className={showModal ? "modal" : "modal hide"}>
             <p>Playlists</p>
             {
-                playlist.map((playlistItem) => {
-                    console.log(playlistItem.id)
+                playlist.map((playlistItem, index) => {
+                    // console.log(playlistItem.id)
                     return (
                         <>
-
-                            <div onClick={() => handleShowModal(playlistItem.category)}
-                                className='modal-options' >
-                                <label htmlFor="checkbox">
-                                    <input type="checkbox"
-                                        name="checkbox"
-                                    // checked={playlistItem.name}
-                                    // onChange={ }
-
-                                    />
-                                    {playlistItem.id}
-                                    {playlistItem.name}
-                                </label>
+                            <div key={playlistItem.id} >
+                                <form
+                                    className='modal-options' >
+                                    <label htmlFor={`checkbox ${index}`}>
+                                        <input
+                                            type="checkbox"
+                                            name="checkbox"
+                                            id={`checkbox${index}`}
+                                            onChange={() => handleCheckbox(playlistItem.name, videoId)}
+                                            checked={(category === playlistItem.name) ? true : false}
+                                        />
+                                        {/* {playlistItem.id} */}
+                                        {playlistItem.name}
+                                    </label>
+                                </form>
                             </div>
+
                         </>
                     )
                 })
@@ -62,6 +65,6 @@ export function PlaylistModal({ showModal, handleShowModal, category }) {
             </form>
 
 
-        </div>
+        </div >
     )
 }

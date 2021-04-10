@@ -18,15 +18,15 @@ export function Saved() {
     return (
         <div className="div-saved">
             {
-                (saved.length === 0) ?
-                    <p>There are no saved videos</p> :
-                    saved.map((item) => {
+                (saved.length === 0)
+                    ? <p>There are no saved videos</p>
+                    : saved.map((item) => {
                         return (
-                            <div className="vertical-video-card">
+                            <div className="vertical-video-card" key={item.id}>
                                 <img src={item.videoThumbnail} alt="thumbnail" />
                                 <div className="div-details">
                                     <p className="title">{item.title}</p>
-                                    <p class="channel">{item.channelName}</p>
+                                    <p className="channel">{item.channelName}</p>
                                 </div>
                             </div>
                         )
