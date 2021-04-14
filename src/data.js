@@ -57,7 +57,7 @@ export const videoList = [
         title: "How Spotify beat Apple at their own game",
         url: "https://youtu.be/IZnTp_iCrRY",
         channelName: "Slidebean",
-        videoThumbnail: "https://i.ytimg.com/an_webp/IZnTp_iCrRY/mqdefault_6s.webp?du=3000&sqp=CPi3qoMG&rs=AOn4CLAQxBPpUpmdOwkdVqH60FfkbOPz4A",
+        videoThumbnail: "https://i.ytimg.com/vi/IZnTp_iCrRY/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBd43j1GO2wCXA_puSeQOcc56LueA",
         category: "case-study",
         channelImage: "https://yt3.ggpht.com/ytc/AAUvwnhUW-Pp4de6P_dJ-bYc3v5vhBWM9Nb8tYHcaefKVQ=s68-c-k-c0x00ffffff-no-rj"
     },
@@ -66,7 +66,7 @@ export const videoList = [
         title: "Nikola Motor: disaster foretold",
         url: "https://youtu.be/4QMai1tWuyM",
         channelName: "Slidebean",
-        videoThumbnail: "https://i.ytimg.com/an_webp/4QMai1tWuyM/mqdefault_6s.webp?du=3000&sqp=CNmFqoMG&rs=AOn4CLBN7L3Y34STtTjK4ymJDzSDdGHnmg",
+        videoThumbnail: "https://i.ytimg.com/vi/4QMai1tWuyM/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCINDQFNT9rleSqFYCNcWRSkh14EA",
         category: "comedy",
         channelImage: "https://yt3.ggpht.com/ytc/AAUvwnhUW-Pp4de6P_dJ-bYc3v5vhBWM9Nb8tYHcaefKVQ=s68-c-k-c0x00ffffff-no-rj"
     },
@@ -76,7 +76,17 @@ export const playlist = [
     {
         id: v4(),
         name: "saved",
-        videos: []
+        videos: [
+            {
+                id: "yyktccr5apU",
+                title: "The Dark World of New Age Gurus | Documentary.",
+                url: "https://youtu.be/yyktccr5apU",
+                channelName: "James Jani",
+                videoThumbnail: "https://i.ytimg.com/vi/yyktccr5apU/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDiEbNXCc2m5tYuuoXryl4Wrop2qQ",
+                category: "video-essay",
+                channelImage: "https://yt3.ggpht.com/ytc/AAUvwnhUW-Pp4de6P_dJ-bYc3v5vhBWM9Nb8tYHcaefKVQ=s68-c-k-c0x00ffffff-no-rj"
+
+            },]
     },
     {
         id: v4(),
@@ -90,7 +100,19 @@ export const playlist = [
             category: "video-essay",
             channelImage: "https://yt3.ggpht.com/ytc/AAUvwnhUW-Pp4de6P_dJ-bYc3v5vhBWM9Nb8tYHcaefKVQ=s68-c-k-c0x00ffffff-no-rj"
 
-        }]
+        },
+
+        {
+            id: "nS_6c4PyJvg",
+            title: "THE CROWD WORK SPECIAL | Andrew Schulz | Stand Up Comedy",
+            url: "https://youtu.be/nS_6c4PyJvg",
+            channelName: "The Andrew Schulz",
+            videoThumbnail: "https://i.ytimg.com/vi/nS_6c4PyJvg/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDtafdSAYk8j5DRDq_1bj1wP4xfVw",
+            category: "comedy",
+            channelImage: "https://yt3.ggpht.com/ytc/AAUvwnhUW-Pp4de6P_dJ-bYc3v5vhBWM9Nb8tYHcaefKVQ=s68-c-k-c0x00ffffff-no-rj"
+        }
+
+        ]
     }
 ]
 

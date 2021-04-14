@@ -1,11 +1,11 @@
 .navbar{
     display:flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: space-around;
+    align-items:center;
     
     padding:1rem 0 1rem 0; 
-    /* border:1px solid red; */
+    
     background-color: var(--theme-color);
     position: fixed; 
     top: 0;
@@ -15,6 +15,9 @@
     color:white;
     border-bottom:2px solid var(--sidebar-theme)
     
+}
+.title-small{
+    display: none;
 }
 .link{
     text-decoration:none;
@@ -26,6 +29,7 @@
     justify-content: space-around;
     align-items: center;
     font-size: 1.25rem;
+    
 }
 .burger-icon{
     padding-right:0.5rem;
@@ -36,8 +40,19 @@
 .navbar-right{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
+   
 }
+.navbar-right a{
+    text-decoration: none;
+    color: var(--white);
+}
+.icon{
+    margin-right: 0.5rem;
+    cursor: pointer;
+    
+}
+
 
 
 
@@ -48,7 +63,12 @@
     }
 }
 @media screen and (max-width:768px){
-    /* .sidebar{
-        display: none;
-    } */
+  .title-small{
+    display: block;
+    color:var(--primary-color);
+    font-weight: bold;
+  }
+  .title-full{
+      display: none;
+  }
 }

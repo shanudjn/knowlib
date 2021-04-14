@@ -16,13 +16,10 @@ export function reducer(state, action) {
             console.log("Inside Add Playlist", action.payload)
             return {
                 ...state,
-                playlist: [...state.playlist, { id: v4(), name: action.payload, video: [] }]
+                playlist: [...state.playlist, { id: v4(), name: action.payload, videos: [] }]
             }
         case "REVOME_FROM_PLAYLIST":
             console.log("Remove from playlist", action.payload);
-
-            // const { newPlaylist } = state.playlist.filter((item) => item.name === action.payload.playlistName)
-            // console.log(newPlaylist)
 
             return {
                 ...state,

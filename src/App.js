@@ -2,7 +2,7 @@
 import './App.css';
 import { Routes, Route, Link } from 'react-router-dom';
 import { Navbar } from './components/Navbar/Navbar';
-import { Topics } from './components/Topics/Topics'
+
 import { Home } from './pages/Home/home';
 import { Saved } from './pages/Saved/saved';
 import { Playlist } from './pages/Playlist/playlist';

@@ -11,7 +11,6 @@ export function PlaylistModal({ showModal, videoId }) {
 
     const [modalInput, setModalInput] = useState("");
 
-    const [category, setCategory] = useState("");
 
 
     function addPlaylist(e) {
@@ -23,17 +22,18 @@ export function PlaylistModal({ showModal, videoId }) {
     }
 
     function isChecked(playlistName, videoId) {
-        // console.log(playlistName)
-        // // const { category } = videoList.find((item) => item.id === videoId)
-        // const { videos } = playlist.find(item => item.name === playlistName)
-
+        const videos = playlist.find((item) => item.name === playlistName).videos
         // console.log(videos)
+        if (videos.length !== 0) {
+            const video = videos.filter((item) => item.id === videoId)
+            if (video.length === 0) { return false; }
+        }
 
-        // const { reqdVideo } = (videos.find((item) => item.id === videoId))
-        // console.log(reqdVideo)
-        // if (playlistName === category)
-        //     return true;
-        // return false;
+        // console.log(video)
+
+        return true;
+
+
     }
     function checkInPlaylist(playlistName, videoId) {
         const video = playlist.find(item => item.name === playlistName).videos.filter((item) => item.id === videoId)
@@ -44,13 +44,10 @@ export function PlaylistModal({ showModal, videoId }) {
         }
         return true;
 
-        // if (videoId === undefined)
-        //     return false;
-        // return true;
+
     }
 
     function handleCheckbox(playlistName) {
-        // const { category } = videoList.find((item) => item.id === videoId)
 
         const video = videoList.find((item) => item.id === videoId)
 
@@ -58,20 +55,7 @@ export function PlaylistModal({ showModal, videoId }) {
 
         !isInPlaylist ? dispatch({ type: "ADD_TO_PLAYLIST", payload: { video: video, playlistName: playlistName } })
             : dispatch({ type: "REVOME_FROM_PLAYLIST", payload: { video: video, playlistName: playlistName } })
-
-
-        // if (video !== undefined) {
-        //     dispatch({ type: "REVOME_FROM_PLAYLIST", payload: { videoId: videoId, category: "" } })
-        // }
-
-
-
-
     }
-
-
-
-
     console.log(playlist)
     return (
         <div className={showModal ? "modal" : "modal hide"}>
@@ -90,7 +74,7 @@ export function PlaylistModal({ showModal, videoId }) {
                                     name={playlistItem.name}
                                     id={`checkbox${index}`}
                                     onChange={() => handleCheckbox(playlistItem.name)}
-                                // checked={isChecked(playlistItem.name)}
+                                    checked={isChecked(playlistItem.name, videoId)}
 
                                 />
                                 {/* {playlistItem.id} */}

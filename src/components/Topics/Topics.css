@@ -1,21 +1,16 @@
 .topics{
-    /* border:1px solid red; */
     margin: 5rem auto 0 auto;
     max-width: 600px;   
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    
+    grid-template-columns: 1fr 1fr 1fr 1fr;    
 }
 .topics-button{
     margin: 1rem;
-    /* width: 5rem; */
-    /* height: 4rem; */
-
+    font-weight: bold;
 }
 
 @media screen and (max-width:768px){
     .topics{
-        /* max-width: 400px; */
         grid-template-columns: 2fr 2fr;
     }
 }

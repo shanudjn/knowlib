@@ -7,32 +7,24 @@ import './video.css';
 import { PlaylistModal } from '../../components/PlaylistModal/PlaylistModal'
 import { useVideo } from '../../context/video-context';
 
+
 export function Video() {
 
 
     let { id } = useParams();
 
-    const { videoList, playlist } = useVideo();
-
-    const [videoDetails, setVideoDetails] = useState({});
-
+    const { videoList } = useVideo();
     const [showModal, setShowModal] = useState(false);
 
-    // const [category, setCategory] = useState("");
 
-
-    // function getVideoDetails(id) {
-    //     const details = videoList.find((item) => item.id === id)
-    //     // setCategory(details.category)
-    //     setVideoDetails(details)
-    // }
+    const videoDetails = videoList.find((item) => item.id === id)
 
 
     function handleShowModal() {
         setShowModal((showModal) => !showModal)
     }
 
-    // useEffect(() => getVideoDetails(id), [])
+
 
 
     return (
@@ -44,12 +36,11 @@ export function Video() {
                     <YouTube videoId={id}>
                     </YouTube>
                     <div className="div-video-details">
-                        <p className="text-video-title">{videoDetails.title}</p>
+                        {/* <p className="text-video-title">{videoDetails.title}</p> */}
                         <span className="material-icons" onClick={() => handleShowModal()}>
                             playlist_add
                         </span>
                         <PlaylistModal showModal={showModal} videoId={id} />
-                        {/* <PlaylistModal showModal={showModal} videoId={id} /> */}
 
                     </div>
                 </div>
