@@ -1,5 +1,5 @@
 .modal{
-    border:1px solid red; 
+    /* border:1px solid red;  */
     position:fixed;
     
     top:50%;
@@ -12,7 +12,12 @@
     align-items: flex-start;
     background-color: var(--sidebar-theme);
     z-index: 100;
+    padding: 1rem;;
 }
 .hide{
     display: none;
+}
+
+.modal-input-text{
+    margin:1rem;
 }

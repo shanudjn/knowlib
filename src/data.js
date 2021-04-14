@@ -75,11 +75,22 @@ export const videoList = [
 export const playlist = [
     {
         id: v4(),
-        name: "video-essay"
+        name: "saved",
+        videos: []
     },
     {
         id: v4(),
-        name: "comedy"
+        name: "watch-later",
+        videos: [{
+            id: "K0swOpFKMf8",
+            title: "How to Introduce a Villain | Film Perfection",
+            url: "https://youtu.be/K0swOpFKMf8",
+            channelName: "Filmento",
+            videoThumbnail: "https://i.ytimg.com/vi/F-JVNFE_0PE/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD4DKSn7WbtXEAswyqLazUjcJ2fJw",
+            category: "video-essay",
+            channelImage: "https://yt3.ggpht.com/ytc/AAUvwnhUW-Pp4de6P_dJ-bYc3v5vhBWM9Nb8tYHcaefKVQ=s68-c-k-c0x00ffffff-no-rj"
+
+        }]
     }
 ]
 

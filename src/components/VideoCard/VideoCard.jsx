@@ -1,11 +1,13 @@
 import './VideoCard.css'
 
 import { Link } from 'react-router-dom';
+import { useVideo } from '../../context/video-context';
 
 
 
 
-export function VideoCard({ video, handleWatchLater }) {
+export function VideoCard({ video, }) {
+    const { dispatch } = useVideo();
     return (
         <>
             <div className="video-card" key={video.id}>
@@ -15,7 +17,7 @@ export function VideoCard({ video, handleWatchLater }) {
                         <div className="title">
                             <Link to={`/videopage/${video.id}`} className="link"><p>{video.title}</p></Link>
                             <span className="material-icons"
-                                onClick={() => handleWatchLater(video)}
+                                onClick={() => dispatch({ type: "ADD_TO_SAVED_LIST", payload: { name: "saved", video: video } })}
                             >
                                 watch_later
                         </span>

@@ -18,23 +18,23 @@ export function Video() {
 
     const [showModal, setShowModal] = useState(false);
 
-    // const [category, setCategory] = useState("");
+    const [category, setCategory] = useState("");
 
 
-    // function getVideoDetails(id) {
-    //     const details = videoList.find((item) => item.id === id)
-    //     // setCategory(details.category)
-    //     setVideoDetails(details)
-    // }
+    function getVideoDetails(id) {
+        const details = videoList.find((item) => item.id === id)
+        // setCategory(details.category)
+        setVideoDetails(details)
+    }
 
 
     function handleShowModal() {
         setShowModal((showModal) => !showModal)
     }
 
-    // useEffect(() => getVideoDetails(id), [])
+    useEffect(() => getVideoDetails(id), [])
 
-
+    console.log("required category", category)
     return (
         <>
             <Navbar />
@@ -48,7 +48,7 @@ export function Video() {
                         <span className="material-icons" onClick={() => handleShowModal()}>
                             playlist_add
                         </span>
-                        <PlaylistModal showModal={showModal} videoId={id} />
+                        <PlaylistModal showModal={showModal} category={category} videoId={id} />
                         {/* <PlaylistModal showModal={showModal} videoId={id} /> */}
 
                     </div>
