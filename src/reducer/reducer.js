@@ -16,7 +16,7 @@ export function reducer(state, action) {
             console.log("Inside Add Playlist", action.payload)
             return {
                 ...state,
-                playlist: [...state.playlist, { id: v4(), name: action.payload, videos: [] }]
+                playlist: [...state.playlist, { id: v4(), name: action.payload.playlistName, videos: [action.payload.video] }]
             }
         case "REVOME_FROM_PLAYLIST":
             console.log("Remove from playlist", action.payload);
@@ -27,9 +27,6 @@ export function reducer(state, action) {
                     ? { ...item, videos: item.videos.filter((filterItem) => filterItem.id !== action.payload.video.id) }
                     : item
                 )
-
-                //videoList: state.videoList.map((item) => (item.id === action.payload.videoId) ? { ...item, category: "" } : item),
-
             }
         case "ADD_TO_PLAYLIST":
             console.log("Add to playlist")
@@ -40,10 +37,8 @@ export function reducer(state, action) {
                     ? { ...item, videos: [...item.videos, action.payload.video] }
                     : item
                 )
-                // videoList: state.videoList.map((item) => (item.id === action.payload.videoId) ? { ...item, category: action.payload.category } : item)
+
             }
-
-
 
         default:
             break;

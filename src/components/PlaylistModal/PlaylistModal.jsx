@@ -16,8 +16,9 @@ export function PlaylistModal({ showModal, videoId }) {
     function addPlaylist(e) {
         e.preventDefault();
         console.log(modalInput);
+        const video = videoList.find((item) => item.id === videoId)
         if (modalInput === "") return;
-        dispatch({ type: "ADD_PLAYLIST", payload: modalInput })
+        dispatch({ type: "ADD_PLAYLIST", payload: { video: video, playlistName: modalInput } })
         setModalInput("");
     }
 

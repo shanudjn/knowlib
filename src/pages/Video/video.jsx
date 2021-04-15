@@ -23,10 +23,6 @@ export function Video() {
     function handleShowModal() {
         setShowModal((showModal) => !showModal)
     }
-
-
-
-
     return (
         <>
             <Navbar />
@@ -36,7 +32,7 @@ export function Video() {
                     <YouTube videoId={id}>
                     </YouTube>
                     <div className="div-video-details">
-                        {/* <p className="text-video-title">{videoDetails.title}</p> */}
+                        <p className="text-video-title">{videoDetails.title}</p>
                         <span className="material-icons" onClick={() => handleShowModal()}>
                             playlist_add
                         </span>
