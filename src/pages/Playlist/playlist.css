@@ -6,6 +6,8 @@
     margin: auto; 
     display: flex;
     flex-direction: column;       
+    /* grid-template-columns: 2fr 2fr; */
+
 }
 .title-playlist{
     text-transform: capitalize;

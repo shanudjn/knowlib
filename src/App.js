@@ -7,6 +7,9 @@ import { Home } from './pages/Home/home';
 import { Saved } from './pages/Saved/saved';
 import { Playlist } from './pages/Playlist/playlist';
 import { Video } from './pages/Video/video'
+import { Login } from './pages/Login/Login';
+import PrivateRoute from './PrivateRoute'
+
 function App() {
   return (
     <div className="App">
@@ -15,8 +18,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/saved" element={<Saved />} />
-        <Route path="/playlist" element={<Playlist />} />
+        {/* <Route path="/playlist" element={<Playlist />} /> */}
         <Route path="/videopage/:id" element={<Video />} />
+        <Route path="/login" element={<Login />} />
+        <PrivateRoute path="/playlist" element={<Playlist />} />
+
 
       </Routes>
     </div>
