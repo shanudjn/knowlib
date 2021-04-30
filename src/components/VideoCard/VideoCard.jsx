@@ -15,7 +15,7 @@ export function VideoCard({ video }) {
                 <div className="div-video-details">
                     <div className="channel-details">
                         <div className="title">
-                            <Link to={`/videopage/${video.id}`} className="link"><p>{video.title}</p></Link>
+                            <Link to={`/videopage/${video.id}`} className="link"><p className="video-title">{video.title}</p></Link>
                             <span className="material-icons"
                                 onClick={() => dispatch({ type: "ADD_TO_PLAYLIST", payload: { video: video, playlistName: "saved" } })}
                             >

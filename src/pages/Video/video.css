@@ -14,8 +14,11 @@
 }
 .div-video-details{
     display:flex;
-    justify-content: space-around;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
+    width: 100%;
+        
 }
 .text-video-title{
     font-size: 1.25rem;
@@ -42,7 +45,7 @@
     border-bottom:1px solid var(--primary-color);
     background-color: var(--sidebar-theme);
     width: 100%;
-    padding:1rem 0 1rem 0;
+   
 }
 
 .notes-list{
@@ -93,15 +96,16 @@
         flex-direction: column;
         /* align-items: center; */
     }
-    .note-section{
-       
+    .note-section{       
         margin:0 0 0 1rem;
-        width: 600px;
-       
+        width: 600px;       
         display: flex;
-        flex-direction: column; 
+        flex-direction: column;        
         
-        
+    }
+    .div-video-details{
+        width: 95%;
+        margin: auto;
     }
 
 }

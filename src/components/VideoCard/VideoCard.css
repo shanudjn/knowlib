@@ -12,6 +12,9 @@
 .channel-details{
     font-size: 0.75rem;
     text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 .title{
     display: flex;
@@ -21,6 +24,12 @@
 .title:hover{
     cursor: pointer;
 }
+.video-title{
+    width: 15rem;
+    
+}
 .link{
     text-decoration: none;
+   
+    text-overflow: ellipsis;
 }
