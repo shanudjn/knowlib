@@ -20,7 +20,7 @@ export function VideoCard({ video }) {
                                 onClick={() => dispatch({ type: "ADD_TO_PLAYLIST", payload: { video: video, playlistName: "saved" } })}
                             >
                                 watch_later
-                        </span>
+                             </span>
 
                         </div>
                         <p>{video.channelName}</p>

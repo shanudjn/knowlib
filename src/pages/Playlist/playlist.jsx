@@ -14,25 +14,25 @@ export function Playlist() {
                 playlist.map(({ id, name, videos }) => {
                     return (
                         <>
-                            <p className="title-playlist" key={id}>{name}</p>
-                            <div>
-                                {
-                                    videos.map(({ id, title, url, videoThumbnail }) => {
-                                        console.log()
-                                        return (
-                                            <div className="card-horizontal" key={id}>
-                                                <div className="playlist-thumbnail">
-                                                    <Link to={`/videopage/${id}`}><img src={videoThumbnail} alt="" className="playlist-video-thumbnail" /></Link>
-                                                </div>
-                                                <div className="div-video-details">
-                                                    {title}
-                                                </div>
+                            <div className="div-title-playlist"><p className="title-playlist" >{name}</p></div>
+                            {/* <div> */}
+                            {
+                                videos.map(({ id, title, url, videoThumbnail }) => {
 
+                                    return (
+                                        <div className="card-horizontal" key={id}>
+
+                                            <Link to={`/videopage/${id}`}><img src={videoThumbnail} alt="" className="playlist-video-thumbnail" /></Link>
+
+                                            <div className="div-video-details">
+                                                <span>{title}</span>
                                             </div>
-                                        )
-                                    })
-                                }
-                            </div>
+
+                                        </div>
+                                    )
+                                })
+                            }
+                            {/* </div> */}
                         </>
 
                     )

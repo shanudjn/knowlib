@@ -3,12 +3,14 @@
     grid-template-columns: 1fr 1fr 1fr 1fr ;    
     padding:0 5rem 0 5rem; 
     position: relative;
+    top:8rem;
+   
  
 }
 @media screen and (max-width:768px) {
     .video-grid{
         display: grid;
-        grid-template-columns: 2fr 2fr;
+        grid-template-columns: 1fr;
         padding: 0;
     }
 }

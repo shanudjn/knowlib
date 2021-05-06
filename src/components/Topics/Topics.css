@@ -1,8 +1,11 @@
 .topics{
-    margin: 5rem auto 0 auto;
-    max-width: 600px;   
+    position : relative;    
+    top:5rem;    
+    max-width: 600px;  
+    margin: auto;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;    
+    grid-template-columns: 1fr 1fr 1fr 1fr;  
+    
 }
 .topics-button{
     margin: 1rem;
@@ -10,6 +13,11 @@
 }
 
 @media screen and (max-width:768px){
+    .topics{
+        grid-template-columns: 2fr 2fr;
+    }
+}
+@media screen and (max-width:411px){
     .topics{
         grid-template-columns: 2fr 2fr;
     }

@@ -5,7 +5,7 @@ import { useVideo } from '../../context/video-context';
 
 
 
-export function PlaylistModal({ showModal, videoId }) {
+export function PlaylistModal({ showModal, videoId, handleShowModal }) {
 
     const { videoList, playlist, dispatch } = useVideo();
 
@@ -24,14 +24,11 @@ export function PlaylistModal({ showModal, videoId }) {
 
     function isChecked(playlistName, videoId) {
         const videos = playlist.find((item) => item.name === playlistName).videos
-        // console.log(videos)
+
         if (videos.length !== 0) {
             const video = videos.filter((item) => item.id === videoId)
             if (video.length === 0) { return false; }
         }
-
-        // console.log(video)
-
         return true;
 
 
@@ -58,9 +55,16 @@ export function PlaylistModal({ showModal, videoId }) {
             : dispatch({ type: "REVOME_FROM_PLAYLIST", payload: { video: video, playlistName: playlistName } })
     }
     console.log(playlist)
+
+
+
     return (
-        <div className={showModal ? "modal" : "modal hide"}>
-            <p>Playlists</p>
+        { showModal } && <div className={showModal ? "modal" : "modal hide"}>
+            <div className="playlist-heading"><span>Playlists</span><span className="material-icons button-modal-close" onClick={handleShowModal}>
+                close
+                </span>
+            </div>
+            {console.log(showModal)}
             {
                 playlist.map((playlistItem, index) => {
 
@@ -78,7 +82,7 @@ export function PlaylistModal({ showModal, videoId }) {
                                     checked={isChecked(playlistItem.name, videoId)}
 
                                 />
-                                {/* {playlistItem.id} */}
+
                                 {playlistItem.name}
 
                             </div>
@@ -98,8 +102,8 @@ export function PlaylistModal({ showModal, videoId }) {
                 <button type="submit">Add</button>
             </form>
 
-
         </div >
     )
+
+
 }
-//(category === playlistItem.name) ? true : false
