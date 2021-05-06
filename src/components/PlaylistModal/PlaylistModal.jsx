@@ -99,7 +99,7 @@ export function PlaylistModal({ showModal, videoId, handleShowModal }) {
                     onChange={(e) => setModalInput(e.target.value)}
                     placeholder="New Playlist..."
                     value={modalInput} />
-                <button type="submit">Add</button>
+                <button className="btn btn-primary btn-add-playlist" type="submit">Add</button>
             </form>
 
         </div >

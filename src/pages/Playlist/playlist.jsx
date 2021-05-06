@@ -25,7 +25,7 @@ export function Playlist() {
                                             <Link to={`/videopage/${id}`}><img src={videoThumbnail} alt="" className="playlist-video-thumbnail" /></Link>
 
                                             <div className="div-video-details">
-                                                <span>{title}</span>
+                                                <Link to={`/videopage/${id}`}><span>{title}</span></Link>
                                             </div>
 
                                         </div>

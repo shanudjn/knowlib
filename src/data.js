@@ -164,28 +164,6 @@ export const notesList = [
             {
                 id: v4(),
                 notes: "Dread It Run from it"
-            },
-            {
-                id: v4(),
-                notes: "Dread It Run from it"
-            }, {
-                id: v4(),
-                notes: "Dread It Run from it"
-            }, {
-                id: v4(),
-                notes: "Dread It Run from it"
-            }, {
-                id: v4(),
-                notes: "Dread It Run from it"
-            }, {
-                id: v4(),
-                notes: "Dread It Run from it"
-            }, {
-                id: v4(),
-                notes: "Dread It Run from it"
-            }, {
-                id: v4(),
-                notes: "Dread It Run from it"
             }
         ]
     }, {
