@@ -1,6 +1,6 @@
 
 import './App.css';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { Navbar } from './components/Navbar/Navbar';
 
 import { Home } from './pages/Home/home';
@@ -19,7 +19,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/saved" element={<Saved />} />
         {/* <Route path="/playlist" element={<Playlist />} /> */}
-        <Route path="/videopage/:id" element={<Video />} />
+        <Route path="/videopage/:videoId" element={<Video />} />
         <Route path="/login" element={<Login />} />
         <PrivateRoute path="/playlist" element={<Playlist />} />
 

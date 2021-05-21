@@ -31,7 +31,7 @@ export function Home() {
             <Topics handleSetFilter={handleSetFilter} />
             <div className="video-grid">
                 {
-                    filteredList.map((video) => <VideoCard video={video} key={video.id} />)
+                    filteredList.map((video) => <VideoCard video={video} key={video.videoId} />)
                 }
             </div>
 
