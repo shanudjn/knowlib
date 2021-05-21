@@ -1,5 +1,5 @@
 import { v4 } from "uuid";
-import { playlist, videoList } from "../data";
+// import { playlist, videoList } from "../data";
 
 
 
@@ -13,13 +13,14 @@ export function reducer(state, action) {
                 savedList: [...state.savedList, action.payload]
             }
         case "ADD_PLAYLIST":
-            console.log("Inside Add Playlist", action.payload)
+            console.log(action.payload)
             return {
                 ...state,
-                playlist: [...state.playlist, { id: v4(), name: action.payload.playlistName, videos: [action.payload.video] }]
+                playlist: [...state.playlist, { playlistName: action.payload.playlistName, videos: [action.payload.video] }]
+                // playlist: [...state.playlist, { ...action.payload }]
             }
         case "REVOME_FROM_PLAYLIST":
-            console.log("Remove from playlist", action.payload);
+
 
             return {
                 ...state,
@@ -29,8 +30,7 @@ export function reducer(state, action) {
                 )
             }
         case "ADD_TO_PLAYLIST":
-            console.log("Add to playlist")
-            console.log(action.payload)
+
             return {
                 ...state,
                 playlist: state.playlist.map((item) => (item.name === action.payload.playlistName)
@@ -38,6 +38,18 @@ export function reducer(state, action) {
                     : item
                 )
 
+            }
+        case "INITIALIZE_ALL_VIDEOS":
+
+            return {
+                ...state,
+                videoList: [...action.payload.videos]
+            }
+        case "INITIALIZE_ALL_PLAYLIST":
+
+            return {
+                ...state,
+                playlist: [...action.payload.playlist]
             }
 
         default:
@@ -47,8 +59,12 @@ export function reducer(state, action) {
 }
 
 export const initialState = {
-    videoList: [...videoList],
+    // videoList: [...videoList],
+    // savedList: [],
+    // playlist: [...playlist],
+    videoList: [],
     savedList: [],
-    playlist: [...playlist],
+    playlist: []
+
 
 }

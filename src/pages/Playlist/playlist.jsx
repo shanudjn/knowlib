@@ -11,18 +11,18 @@ export function Playlist() {
     return (
         <div className="container-playlist">
             {
-                playlist.map(({ id, name, videos }) => {
+                playlist.map(({ _id, playlistName, videos }) => {
                     return (
                         <>
-                            <div className="div-title-playlist"><p className="title-playlist" >{name}</p></div>
+                            <div className="div-title-playlist"><p className="title-playlist" >{playlistName}</p></div>
                             {/* <div> */}
                             {
-                                videos.map(({ id, title, url, videoThumbnail }) => {
+                                videos.map(({ id, title, url, thumbnail }) => {
 
                                     return (
                                         <div className="card-horizontal" key={id}>
 
-                                            <Link to={`/videopage/${id}`}><img src={videoThumbnail} alt="" className="playlist-video-thumbnail" /></Link>
+                                            <Link to={`/videopage/${id}`}><img src={thumbnail} alt="" className="playlist-video-thumbnail" /></Link>
 
                                             <div className="div-video-details">
                                                 <Link to={`/videopage/${id}`}><span>{title}</span></Link>

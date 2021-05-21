@@ -1,4 +1,6 @@
 import './PlaylistModal.css';
+import axios from "axios";
+
 
 import { useState } from 'react';
 import { useVideo } from '../../context/video-context';
@@ -13,20 +15,33 @@ export function PlaylistModal({ showModal, videoId, handleShowModal }) {
 
 
 
-    function addPlaylist(e) {
+    async function createPlaylist(e) {
         e.preventDefault();
-        console.log(modalInput);
-        const video = videoList.find((item) => item.id === videoId)
+        const video = videoList.find((item) => item.videoId === videoId)
+        console.log(video)
+
         if (modalInput === "") return;
-        dispatch({ type: "ADD_PLAYLIST", payload: { video: video, playlistName: modalInput } })
-        setModalInput("");
+
+        try {
+            const response = await axios.post('http://localhost:8080/playlist/new', { playlistName: modalInput })
+            if (response.status === 200) {
+                console.log("Successfully Saved")
+                dispatch({ type: "ADD_PLAYLIST", payload: { playlistName: modalInput, video: video } })
+                setModalInput("");
+            }
+        } catch (error) {
+            console.log(error)
+        }
+
     }
 
     function isChecked(playlistName, videoId) {
-        const videos = playlist.find((item) => item.name === playlistName).videos
+
+        const videos = playlist.find((item) => item.playlistName === playlistName).videos
 
         if (videos.length !== 0) {
-            const video = videos.filter((item) => item.id === videoId)
+            const video = videos.filter((item) => item.videoId === videoId)
+
             if (video.length === 0) { return false; }
         }
         return true;
@@ -34,37 +49,46 @@ export function PlaylistModal({ showModal, videoId, handleShowModal }) {
 
     }
     function checkInPlaylist(playlistName, videoId) {
-        const video = playlist.find(item => item.name === playlistName).videos.filter((item) => item.id === videoId)
-        console.log(video);
+        const video = playlist.find(item => item.playlistName === playlistName).videos.filter((item) => item.id === videoId)
+
 
         if (video.length === 0) {
             return false
         }
         return true;
+    }
+
+    function addToPlaylist(video, playlistName) {
 
 
+
+        dispatch({ type: "ADD_TO_PLAYLIST", payload: { video: video, playlistName: playlistName } })
+    }
+
+    function removeFromPlaylist(video, playlistName) {
+        dispatch({ type: "REVOME_FROM_PLAYLIST", payload: { video: video, playlistName: playlistName } })
     }
 
     function handleCheckbox(playlistName) {
 
-        const video = videoList.find((item) => item.id === videoId)
+        const video = videoList.find((item) => item.videoId === videoId)
 
         const isInPlaylist = checkInPlaylist(playlistName, videoId);
 
-        !isInPlaylist ? dispatch({ type: "ADD_TO_PLAYLIST", payload: { video: video, playlistName: playlistName } })
-            : dispatch({ type: "REVOME_FROM_PLAYLIST", payload: { video: video, playlistName: playlistName } })
+        !isInPlaylist ? addToPlaylist(video, playlistName)
+            : removeFromPlaylist(video, playlistName)
     }
-    console.log(playlist)
 
 
 
+    console.log(modalInput)
     return (
         { showModal } && <div className={showModal ? "modal" : "modal hide"}>
             <div className="playlist-heading"><span>Playlists</span><span className="material-icons button-modal-close" onClick={handleShowModal}>
                 close
                 </span>
             </div>
-            {console.log(showModal)}
+
             {
                 playlist.map((playlistItem, index) => {
 
@@ -76,15 +100,13 @@ export function PlaylistModal({ showModal, videoId, handleShowModal }) {
                                 <input
 
                                     type="checkbox"
-                                    name={playlistItem.name}
+                                    name={playlistItem.playlistName}
                                     id={`checkbox${index}`}
-                                    onChange={() => handleCheckbox(playlistItem.name)}
-                                    checked={isChecked(playlistItem.name, videoId)}
+                                    onChange={() => handleCheckbox(playlistItem.playlistName)}
+                                    checked={isChecked(playlistItem.playlistName, videoId)}
 
                                 />
-
-                                {playlistItem.name}
-
+                                {playlistItem.playlistName}
                             </div>
 
 
@@ -93,7 +115,7 @@ export function PlaylistModal({ showModal, videoId, handleShowModal }) {
                 })
             }
             <form
-                onSubmit={e => addPlaylist(e)}>
+                onSubmit={e => createPlaylist(e)}>
                 <input type="text"
                     className="modal-input-text"
                     onChange={(e) => setModalInput(e.target.value)}

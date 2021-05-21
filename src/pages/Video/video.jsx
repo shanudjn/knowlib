@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useParams } from 'react-router';
 import YouTube from 'react-youtube';
-import { Navbar } from '../../components/Navbar/Navbar';
+
 import { v4 } from 'uuid';
-import Remarkable from "remarkable";
+// import Remarkable from "remarkable";
 import Markdown from "react-remarkable"
 
 
@@ -13,13 +13,13 @@ import './video.css';
 
 import { PlaylistModal } from '../../components/PlaylistModal/PlaylistModal'
 import { useVideo } from '../../context/video-context';
-import { notesList } from '../../data';
+// import { notesList } from '../../data';
 
 
 export function Video() {
 
 
-    let { id } = useParams();
+    let { videoId } = useParams();
 
 
     const { videoList } = useVideo();
@@ -29,7 +29,7 @@ export function Video() {
 
 
 
-    const videoDetails = videoList.find((item) => item.id === id)
+    const videoDetails = videoList.find((item) => item.videoId === videoId)
 
 
     function handleShowModal() {
@@ -51,14 +51,14 @@ export function Video() {
             <div className="container-video">
 
                 <div className="video-section">
-                    <YouTube videoId={id}>
+                    <YouTube videoId={videoId}>
                     </YouTube>
                     <div className="div-video-details">
-                        <p className="text-video-title">{videoDetails.title}</p>
+                        <p className="text-video-title">{videoDetails?.title}</p>
                         <span className="material-icons  button-show-playlist" onClick={() => handleShowModal()}>
                             playlist_add
                         </span>
-                        <PlaylistModal showModal={showModal} videoId={id} handleShowModal={handleShowModal} />
+                        <PlaylistModal showModal={showModal} videoId={videoDetails?.videoId} handleShowModal={handleShowModal} />
 
                     </div>
                 </div>
