@@ -13,27 +13,33 @@ export function reducer(state, action) {
                 savedList: [...state.savedList, action.payload]
             }
         case "ADD_PLAYLIST":
-            console.log(action.payload)
+
             return {
                 ...state,
                 playlist: [...state.playlist, { playlistName: action.payload.playlistName, videos: [action.payload.video] }]
                 // playlist: [...state.playlist, { ...action.payload }]
             }
-        case "REVOME_FROM_PLAYLIST":
+        case "REMOVE_FROM_PLAYLIST":
+            console.log("Removefrom playlist", action.payload)
 
+            const updatedPlaylist = state.playlist.map((item) => (item.playlistName === action.payload.playlistName)
+                ? { ...item, videos: item.videos.filter((filterItem) => filterItem.videoId !== action.payload.video.videoId) }
+                : item
+            )
 
+            console.log(updatedPlaylist)
             return {
                 ...state,
-                playlist: state.playlist.map((item) => (item.name === action.payload.playlistName)
-                    ? { ...item, videos: item.videos.filter((filterItem) => filterItem.id !== action.payload.video.id) }
-                    : item
-                )
+                // playlist: state.playlist.map((item) => (item.playlistName === action.payload.playlistName)
+                //     ? { ...item, videos: item.videos.filter((filterItem) => filterItem.videoId !== action.payload.video.videoId) }
+                //     : item
+                // )
             }
         case "ADD_TO_PLAYLIST":
-
+            console.log("inside add to playlist")
             return {
                 ...state,
-                playlist: state.playlist.map((item) => (item.name === action.payload.playlistName)
+                playlist: state.playlist.map((item) => (item.playlistName === action.payload.playlistName)
                     ? { ...item, videos: [...item.videos, action.payload.video] }
                     : item
                 )
