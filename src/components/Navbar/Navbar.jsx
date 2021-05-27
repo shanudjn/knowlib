@@ -24,11 +24,11 @@ export function Navbar() {
                 <Searchbar />
                 <div className="navbar-right">
 
-                    <Link to="/playlist">
+                    {/* <Link to="/playlist">
                         <span className="material-icons icon">
                             playlist_play
                     </span>
-                    </Link>
+                    </Link> */}
                     <Link to="/login">
                         <span className="material-icons icon">
                             person_outline
