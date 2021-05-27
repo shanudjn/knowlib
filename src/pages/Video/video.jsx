@@ -49,9 +49,8 @@ export function Video() {
         <>
             {/* <Navbar /> */}
             <div className="container-video">
-
                 <div className="video-section">
-                    <YouTube videoId={videoId}>
+                    <YouTube className="video-frame" videoId={videoId}>
                     </YouTube>
                     <div className="div-video-details">
                         <p className="text-video-title">{videoDetails?.title}</p>

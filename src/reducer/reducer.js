@@ -30,10 +30,11 @@ export function reducer(state, action) {
             console.log(updatedPlaylist)
             return {
                 ...state,
-                // playlist: state.playlist.map((item) => (item.playlistName === action.payload.playlistName)
-                //     ? { ...item, videos: item.videos.filter((filterItem) => filterItem.videoId !== action.payload.video.videoId) }
-                //     : item
-                // )
+                // playlist: updatedPlaylist
+                playlist: state.playlist.map((item) => (item.playlistName === action.payload.playlistName)
+                    ? { ...item, videos: item.videos.filter((filterItem) => filterItem.videoId !== action.payload.video.videoId) }
+                    : item
+                )
             }
         case "ADD_TO_PLAYLIST":
             console.log("inside add to playlist")
