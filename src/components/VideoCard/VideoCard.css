@@ -9,7 +9,12 @@
     flex-direction: column;
     padding: 0.5rem;
 }
+
+.icon-watch-later{
+    font-size: 1.10rem;
+}
 .channel-details{
+    height:5rem;
     font-size: 0.75rem;
     text-align: left;
     display: flex;
