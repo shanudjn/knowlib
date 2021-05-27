@@ -3,23 +3,25 @@ import { Link } from 'react-router-dom'
 
 
 
-export function Sidebar({ showSideBar }) {
+export function Sidebar() {
     return (
 
-        <div className="sidebar" style={{ display: (showSideBar) ? "block" : "none" }}>
+        <div className="sidebar">
             <ul className='sidebar-list' >
                 <div className="div-list-item">
 
-                    <Link to='/saved'><li className="sidebar-list-item"><span className="material-icons">
-                        bookmark
-                    </span>Saved</li></Link>
+                    <Link to='/'><li className="sidebar-list-item"><span className="material-icons">
+                        home
+                    </span></li><span>Home</span></Link>
+
                 </div>
                 <div className="div-list-item">
                     <Link to='/playlist'><li className="sidebar-list-item">
                         <span className="material-icons">
-                            list
-                        </span>Playlists
-                    </li></Link>
+                            video_library
+                        </span>
+
+                    </li><span>Library</span></Link>
                 </div>
             </ul>
         </div>
