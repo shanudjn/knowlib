@@ -8,6 +8,7 @@
 .playlist-container{
     display: flex;
     flex-direction: column;
+    border-bottom: 0.15rem solid var(--sidebar-theme)
 }
 .card-container{
     display: grid;

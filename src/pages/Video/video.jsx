@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useParams } from 'react-router';
-import YouTube from 'react-youtube';
+import ReactPlayer from 'react-player'
 
 import { v4 } from 'uuid';
 // import Remarkable from "remarkable";
@@ -50,8 +50,14 @@ export function Video() {
             {/* <Navbar /> */}
             <div className="container-video">
                 <div className="video-section">
-                    <YouTube className="video-frame" videoId={videoId}>
-                    </YouTube>
+                    <div className='player-wrapper'>
+                        <ReactPlayer
+                            className='react-player'
+                            url={`https://www.youtube.com/watch?v=${videoId}`}
+                            width='100%'
+                            height='100%'
+                        />
+                    </div>
                     <div className="div-video-details">
                         <p className="text-video-title">{videoDetails?.title}</p>
                         <span className="material-icons  button-show-playlist" onClick={() => handleShowModal()}>
@@ -64,28 +70,35 @@ export function Video() {
 
                 <div className="note-section">
                     <div className="notes-display-section">
-                        <h3 className="note-section-heading">Notes</h3>
-                        <ul className="notes-list" >
-                            {
-                                videoNotes.map((note) => {
+                        <p className="note-section-heading">Notes</p>
 
-                                    return (
-
-                                        <li className="notes-list-item" key={note.id} >
-                                            <Markdown source={note.notes} />
-                                        </li>
-
-                                    )
-                                })
-                            }
-                        </ul>
                     </div>
-                    <form className="notes-input" onSubmit={(e) => handleAddNote(e)}>
-                        <textarea placeholder="Add your notes..." value={notesInput} onChange={(e) => setNotesInput(e.target.value)} />
-                        <button className="btn btn-primary btn-add-note">Add Note</button>
-                    </form>
+                    <ul className="notes-list" >
+                        {
+                            videoNotes.map((note) => {
+
+                                return (
+
+                                    <li className="notes-list-item" key={note.id} >
+                                        <Markdown source={note.notes} />
+                                    </li>
+
+                                )
+                            })
+                        }
+                    </ul>
 
                 </div>
+                <div className="div-form">
+                    <form className="notes-input" onSubmit={(e) => handleAddNote(e)}>
+                        <textarea className='notes-textarea' placeholder="Add your notes..." value={notesInput} onChange={(e) => setNotesInput(e.target.value)} />
+                        <button className="btn btn-primary btn-add-note">Add Note</button>
+                    </form>
+                </div>
+
+
+
+
             </div>
         </>
     )
