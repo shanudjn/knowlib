@@ -21,10 +21,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/saved" element={<Saved />} />
-        {/* <Route path="/playlist" element={<Playlist />} /> */}
         <Route path="/videopage/:videoId" element={<Video />} />
         <Route path="/login" element={<Login />} />
         <PrivateRoute path="/playlist" element={<Playlist />} />
+        {/* <PrivateRoute path="/videopage/:videoId" element={<Video />} /> */}
       </Routes>
     </div>
   );

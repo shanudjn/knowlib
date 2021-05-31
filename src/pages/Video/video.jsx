@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useParams } from 'react-router';
+import { useLocation, useNavigate, useParams } from 'react-router';
 import ReactPlayer from 'react-player'
 
 import { v4 } from 'uuid';
@@ -13,6 +13,7 @@ import './video.css';
 
 import { PlaylistModal } from '../../components/PlaylistModal/PlaylistModal'
 import { useVideo } from '../../context/video-context';
+import { useAuth } from '../../context/auth-context';
 // import { notesList } from '../../data';
 
 
@@ -23,6 +24,10 @@ export function Video() {
 
 
     const { videoList } = useVideo();
+    const { state } = useLocation();
+    const navigate = useNavigate();
+    const { isUserLoggedIn } = useAuth()
+
     const [showModal, setShowModal] = useState(false);
     const [videoNotes, setNotes] = useState([]);
     const [notesInput, setNotesInput] = useState("");
@@ -33,6 +38,8 @@ export function Video() {
 
 
     function handleShowModal() {
+        !isUserLoggedIn && navigate("/login");
+
         setShowModal((showModal) => !showModal)
     }
     function handleAddNote(e) {

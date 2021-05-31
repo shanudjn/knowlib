@@ -1,11 +1,12 @@
 import { useVideo } from '../../context/video-context';
+
 import { Link } from 'react-router-dom';
+
 import './playlist.css'
 
 export function Playlist() {
 
     const { playlist } = useVideo();
-
 
     console.log(playlist)
     return (

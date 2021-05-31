@@ -118,7 +118,7 @@ export function PlaylistModal({ showModal, videoId, handleShowModal }) {
 
             {
                 playlist.map((playlistItem, index) => {
-                    console.log(playlistItem)
+
                     return (
                         <>
 

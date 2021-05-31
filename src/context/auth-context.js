@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState, useContext, createContext } from "react";
+import { useState, useContext, createContext, useEffect } from "react";
 import { useLocation, useNavigate } from 'react-router-dom';
 
 
@@ -18,30 +18,36 @@ async function loginService(username, password) {
 
 export function AuthProvider({ children }) {
 
-    const { initialLoginState, token: savedToken } = JSON.parse(
-        localStorage?.getItem("login")
-    ) || { initialLoginState: false, savedToken: null }
 
+    const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+    const [token, setToken] = useState(null)
 
-    const [isUserLoggedIn, setIsUserLoggedIn] = useState(initialLoginState);
-    const [token, setToken] = useState(savedToken)
+    useEffect(() => {
+        const { isUserLogIn, token } = JSON.parse(localStorage?.getItem("login")) || {}
 
-
+        isUserLogIn && setIsUserLoggedIn(true);
+        token && setToken(token)
+    }, [])
 
 
     function loginUser(token) {
-        setToken(token);
+
         setIsUserLoggedIn(true);
-        localStorage?.setItem("login", JSON.stringify({ isUserLoggedIn: true, token }))
+        setToken(token);
+
+        localStorage?.setItem("login", JSON.stringify({ isUserLogIn: true, token }))
+
 
     }
 
     async function loginUserWithCredentials(username, password) {
+
         try {
             const response = await loginService(username, password);
             console.log(response)
             if (response.status === 200) {
                 loginUser(response.data.token)
+                return true;
             }
         } catch (error) {
             console.log("Invalid credentials")
@@ -57,7 +63,7 @@ export function AuthProvider({ children }) {
 
 
 
-    return <AuthContext.Provider value={{ isUserLoggedIn, setIsUserLoggedIn, loginUserWithCredentials, logoutUser }}>
+    return <AuthContext.Provider value={{ isUserLoggedIn, setIsUserLoggedIn, loginUserWithCredentials, logoutUser, token }}>
         {children}
     </AuthContext.Provider>
 }

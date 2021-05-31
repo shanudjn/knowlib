@@ -1,12 +1,16 @@
 import axios from "axios";
 import { useContext, createContext, useReducer, useEffect } from "react";
 import { reducer, initialState } from "../reducer/reducer";
+import { useAuth } from "./auth-context";
 
 
 
 const VideoContext = createContext();
 
 export function VideoProvider({ children }) {
+
+    const [state, dispatch] = useReducer(reducer, initialState)
+    const { token } = useAuth()
 
     async function getVideos() {
         try {
@@ -21,11 +25,15 @@ export function VideoProvider({ children }) {
     }
 
     async function getPlaylists() {
-        try {
-            const response = await axios.get("http://localhost:8080/playlist");
 
+        try {
+
+            const response = await axios.get("http://localhost:8080/playlist/",
+                { headers: { authorization: `Bearer ${token}` } }
+            );
+            // console.log(response)
             if (response.status === 200) {
-                console.log(response.data.playlist)
+                // console.log("playlist", response.data.playlist)
                 dispatch({ type: "INITIALIZE_ALL_PLAYLIST", payload: { playlist: response.data.playlist } })
             }
         } catch (error) {
@@ -40,9 +48,8 @@ export function VideoProvider({ children }) {
 
     useEffect(() => {
         getPlaylists();
-    }, [])
+    }, [token])
 
-    const [state, dispatch] = useReducer(reducer, initialState)
 
 
     return <VideoContext.Provider value={{ videoList: state.videoList, saved: state.savedList, playlist: state.playlist, dispatch }}>
