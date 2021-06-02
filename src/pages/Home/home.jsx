@@ -6,14 +6,25 @@ import { VideoCard } from '../../components/VideoCard/VideoCard'
 
 
 export function Home() {
-    const { videoList } = useVideo();
+    const { videoList, searchTerm } = useVideo();
+
     const [filter, setFilter] = useState("");
 
     function handleSetFilter(e) {
-        console.log("inside setFilter");
-        console.log(e)
         setFilter(e);
-        console.log(filter)
+    }
+
+    function getSearchData(videoList, searchTerm) {
+        console.log("inside search")
+        return videoList.filter(item => {
+            console.log(item.title)
+            if (item.title.includes(searchTerm) === true || item.channel.includes(searchTerm) === true) {
+                console.log("note hre", item)
+                return item
+
+            }
+            return null
+        })
     }
 
     function getFilteredList(videoList, filter) {
@@ -24,8 +35,12 @@ export function Home() {
     }
 
 
+
+    // const searchedData = getSearchData(videoList, searchTerm)
+
     const filteredList = getFilteredList(videoList, filter);
 
+    console.log(filteredList)
     return (
         <>
             <Topics handleSetFilter={handleSetFilter} />

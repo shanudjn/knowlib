@@ -1,8 +1,3 @@
-import { v4 } from "uuid";
-// import { playlist, videoList } from "../data";
-
-
-
 
 export function reducer(state, action) {
 
@@ -13,12 +8,21 @@ export function reducer(state, action) {
                 savedList: [...state.savedList, action.payload]
             }
         case "ADD_PLAYLIST":
-
+            console.log(action.payload)
             return {
                 ...state,
-                playlist: [...state.playlist, { playlistName: action.payload.playlistName, videos: [action.payload.video] }]
-                // playlist: [...state.playlist, { ...action.payload }]
+                playlist: [...state.playlist, { ...action.payload.newPlaylist }]
             }
+        case "DELETE_PLAYLIST":
+            console.log("inside REDUCER delete playlist ", action.payload)
+
+            const updatedPlaylistAfterDelete = state.playlist.filter((item) => item._id !== action.payload.playlistId)
+            console.log(updatedPlaylistAfterDelete)
+            return {
+                ...state,
+                playlist: [...updatedPlaylistAfterDelete]
+            }
+
         case "REMOVE_FROM_PLAYLIST":
             console.log("Removefrom playlist", action.payload)
 
@@ -46,11 +50,20 @@ export function reducer(state, action) {
                 )
 
             }
+
+        case "SET_SEARCH_TERM":
+            console.log(action.payload)
+            const newSearchTerm = action.payload
+            return {
+                ...state,
+                searchTerm: newSearchTerm
+            }
         case "INITIALIZE_ALL_VIDEOS":
 
             return {
                 ...state,
-                videoList: [...action.payload.videos]
+                videoList: [...action.payload.videos],
+
             }
         case "INITIALIZE_ALL_PLAYLIST":
 
@@ -66,12 +79,11 @@ export function reducer(state, action) {
 }
 
 export const initialState = {
-    // videoList: [...videoList],
-    // savedList: [],
-    // playlist: [...playlist],
+
     videoList: [],
     savedList: [],
-    playlist: []
+    playlist: [],
+
 
 
 }

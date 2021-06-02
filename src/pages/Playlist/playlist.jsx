@@ -16,7 +16,7 @@ export function Playlist() {
                     return (
                         <>
                             <div className="playlist-container">
-                                <div className="div-title-playlist"><span className="title-playlist" >{playlistName}</span><Link to="/" className="span-see-all">See All</Link></div>
+                                <div className="div-title-playlist"><span className="title-playlist" >{playlistName}</span><Link to={`/playlist/${_id}`} className="span-see-all">See All</Link></div>
                                 <div className="card-container">
                                     {
                                         videos.map(({ id, title, videoId, url, thumbnail }) => {

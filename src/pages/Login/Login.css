@@ -35,12 +35,12 @@
     color:var(--white);
     
 }
+
+
 @media screen and (max-width:1300px) {
-    .form-login{
-       
+    .form-login{       
         margin-right:15rem;
-        margin-left:15rem; 
-             
+        margin-left:15rem;             
         
     }
     .form-input{
@@ -60,6 +60,14 @@
         color:var(--white);
         
     }
+    /* .div-playlist-layout{
+        margin-right:0;
+        margin-left: 0;
+    }
+    .div-playlist{
+        margin-left:0;
+        margin-right: 0;
+    } */
 }
 @media screen and (max-width:411px) {
     .div-login-container{
@@ -94,5 +102,13 @@
         font-weight: bold;
         color:var(--white);
         
+    }
+    .div-playlist-layout{
+        margin-right:0;
+        margin-left: 0;
+    }
+    .div-playlist{
+        margin-left:0.5rem;
+        margin-right: 0.5rem;
     }
 }
