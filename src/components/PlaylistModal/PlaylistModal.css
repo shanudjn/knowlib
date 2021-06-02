@@ -2,9 +2,9 @@
     /* border:1px solid red;  */
     position:fixed;
     
-    top:50%;
+    top:20%;
     /* left:50%;  */
-    left:30%;
+    left:40%;
     margin:auto; 
     display: flex;
     flex-direction: column;
@@ -41,4 +41,10 @@
 
 .modal-input-text{
     margin:1rem;
+}
+@media screen and (max-width:411px){
+    .modal{
+        top:20%;
+        left:10%;
+    }
 }
