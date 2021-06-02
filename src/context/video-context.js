@@ -14,7 +14,7 @@ export function VideoProvider({ children }) {
 
     async function getVideos() {
         try {
-            const response = await axios.get("http://localhost:8080/videos");
+            const response = await axios.get("https://video-lib-backend.herokuapp.com/videos");
             if (response.status === 200) {
 
                 dispatch({ type: "INITIALIZE_ALL_VIDEOS", payload: { videos: response.data.videos } })
@@ -28,7 +28,7 @@ export function VideoProvider({ children }) {
 
         try {
 
-            const response = await axios.get("http://localhost:8080/playlist/",
+            const response = await axios.get("https://video-lib-backend.herokuapp.com/playlist/",
                 { headers: { authorization: `Bearer ${token}` } }
             );
             // console.log(response)
@@ -52,7 +52,7 @@ export function VideoProvider({ children }) {
 
 
 
-    return <VideoContext.Provider value={{ videoList: state.videoList, saved: state.savedList, playlist: state.playlist, dispatch }}>
+    return <VideoContext.Provider value={{ videoList: state.videoList, saved: state.savedList, playlist: state.playlist, searchTerm: state.searchTerm, dispatch }}>
         {children}
     </VideoContext.Provider>
 }

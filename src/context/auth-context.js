@@ -1,13 +1,12 @@
 import axios from "axios";
 import { useState, useContext, createContext, useEffect } from "react";
-import { useLocation, useNavigate } from 'react-router-dom';
 
 
 const AuthContext = createContext();
 
 
 async function loginService(username, password) {
-    return axios.post('http://localhost:8080/users/login/',
+    return axios.post('https://video-lib-backend.herokuapp.com//users/login/',
         {
             user: {
                 username: username,
@@ -21,6 +20,8 @@ export function AuthProvider({ children }) {
 
     const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
     const [token, setToken] = useState(null)
+
+
 
     useEffect(() => {
         const { isUserLogIn, token } = JSON.parse(localStorage?.getItem("login")) || {}
@@ -36,6 +37,7 @@ export function AuthProvider({ children }) {
         setToken(token);
 
         localStorage?.setItem("login", JSON.stringify({ isUserLogIn: true, token }))
+
 
 
     }
@@ -59,6 +61,7 @@ export function AuthProvider({ children }) {
         localStorage?.removeItem("login")
         setIsUserLoggedIn(false);
         setToken(null)
+
     }
 
 
