@@ -29,7 +29,7 @@ export function Navbar() {
                             playlist_play
                     </span>
                     </Link> */}
-                    <Link to="/login">
+                    <Link to="/account">
                         <span className="material-icons icon">
                             person_outline
                     </span>
