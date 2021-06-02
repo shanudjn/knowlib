@@ -8,7 +8,7 @@ import { useVideo } from '../../context/video-context';
 
 export function VideoCard({ video }) {
     const { dispatch } = useVideo();
-    console.log("This is the video", video)
+
     return (
         <>
             <div className="video-card" key={video.videoId}>
@@ -17,11 +17,11 @@ export function VideoCard({ video }) {
                 <div className="channel-details">
                     <div className="title">
                         <Link to={`/videopage/${video.videoId}`} className="link"><p className="video-title">{video.title}</p></Link>
-                        <span className="material-icons icon-watch-later"
+                        {/* <span className="material-icons icon-watch-later"
                             onClick={() => dispatch({ type: "ADD_TO_PLAYLIST", payload: { video: video, playlistName: "saved" } })}
                         >
                             watch_later
-                             </span>
+                             </span> */}
 
                     </div>
                     <p>{video.channel}</p>
