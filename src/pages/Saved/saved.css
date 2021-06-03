@@ -1,0 +1,43 @@
+.div-saved{
+    /* border:1px solid red; */
+    /* height: 200px; */
+    position:relative;
+    top:5rem;
+    
+    /* left:2rem; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 800px;
+    margin: 2rem auto;
+    padding-left:0 0 0.5rem 0.5rem;
+    
+}
+
+.vertical-video-card{
+    display: flex;
+    justify-content: space-between;
+}
+.title{
+    margin: 0;    
+}
+.div-details{
+    padding-left: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    text-align: left;
+}
+
+.vertical-video-card img{
+    width: 300px;
+   
+}
+@media screen and ( max-width:768px) {
+    .div-saved{
+        width: 0px;
+        margin: 0;
+    }
+}

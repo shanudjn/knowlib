@@ -1,0 +1,50 @@
+.modal{
+    /* border:1px solid red;  */
+    position:fixed;
+    
+    top:20%;
+    /* left:50%;  */
+    left:40%;
+    margin:auto; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: var(--sidebar-theme);
+    z-index: 100;
+    padding: 1rem;;
+}
+.playlist-heading{
+    border-bottom:1px solid var(--primary-color);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+   
+}
+.modal-options{
+    margin:0.25rem;
+}
+.modal-input-text{
+    margin:0.35rem;
+    padding: 0.35rem;
+}
+.button-modal-close{
+    cursor: pointer;
+}
+.btn-add-playlist{
+    border-radius: 0;
+}
+.hide{
+    display: none;
+}
+
+.modal-input-text{
+    margin:1rem;
+}
+@media screen and (max-width:411px){
+    .modal{
+        top:20%;
+        left:10%;
+    }
+}

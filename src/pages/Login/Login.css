@@ -1,0 +1,114 @@
+.div-login-container{
+    display: flex;
+    flex-direction: column;
+    margin-right:10rem;
+    margin-left:10rem;
+    
+
+}
+.div-login-form{    
+    display: flex;
+    flex-direction: column;
+ 
+}
+.form-login{
+    display:flex;
+    flex-direction: column;   
+    margin-left: 25rem;
+    margin-right: 25rem;
+
+}
+.form-input{
+    padding:1rem;
+    margin:.5rem;
+    background-color: var(--sidebar-theme );
+    color: var(--white);
+    border-radius: 4px;
+}
+.login-button{
+    padding:1rem;
+    margin-right:.5rem;
+    margin-left:.5rem ;
+    border-radius: 4px;
+    background-color: var(--primary-color);
+    font-weight: bold;
+    color:var(--white);
+    
+}
+
+
+@media screen and (max-width:1300px) {
+    .form-login{       
+        margin-right:15rem;
+        margin-left:15rem;             
+        
+    }
+    .form-input{
+        padding:1rem;
+        margin:.5rem;
+        background-color: var(--sidebar-theme );
+        color: var(--white);
+        border-radius: 4px;
+    }
+    .login-button{
+        padding:1rem;
+        margin-right:.5rem;
+        margin-left:.5rem ;
+        border-radius: 4px;
+        background-color: var(--primary-color);
+        font-weight: bold;
+        color:var(--white);
+        
+    }
+    /* .div-playlist-layout{
+        margin-right:0;
+        margin-left: 0;
+    }
+    .div-playlist{
+        margin-left:0;
+        margin-right: 0;
+    } */
+}
+@media screen and (max-width:411px) {
+    .div-login-container{
+        margin-right:0;
+        margin-left:0;
+    }
+
+    .div-login-form{
+        margin-right:0;
+        margin-left:0;
+    }
+    .form-login{
+       
+        margin-right:0.25rem;
+        margin-left:0.25rem; 
+        padding:1rem       
+        
+    }
+    .form-input{
+        padding:1rem;
+        margin:.5rem;
+        background-color: var(--sidebar-theme );
+        color: var(--white);
+        border-radius: 4px;
+    }
+    .login-button{
+        padding:1rem;
+        margin-right:.5rem;
+        margin-left:.5rem ;
+        border-radius: 4px;
+        background-color: var(--primary-color);
+        font-weight: bold;
+        color:var(--white);
+        
+    }
+    .div-playlist-layout{
+        margin-right:0;
+        margin-left: 0;
+    }
+    .div-playlist{
+        margin-left:0.5rem;
+        margin-right: 0.5rem;
+    }
+}

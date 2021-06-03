@@ -1,0 +1,62 @@
+.account-page-layout{
+    display: flex;
+    flex-direction: column;
+}
+.div-logout{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    /* margin-right:10rem;
+    margin-left:10rem; */
+}
+.logout-button{
+    margin:1rem;
+    padding:1rem;
+    background-color: var(--theme-color);
+    border:1px solid var(--primary-color);
+    border-radius:4px;
+    color:var(--white);
+    cursor: pointer;
+}
+.delete-button{
+    cursor: pointer;
+}
+
+.div-playlist-layout{
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid red; */
+    margin-right:10rem;
+    margin-left:10rem;
+}
+.div-playlist{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    border:1px solid var(--sidebar-theme);
+    border-radius: 4px;
+    margin-right:20rem;
+    margin-left:20rem;
+    margin-top:0.5rem;
+    padding:1rem
+    
+}
+
+.span-message{
+    margin:1rem;
+    padding:1rem;
+    border:1px solid red;
+}
+
+
+@media screen and (max-width:411px) {
+    .div-playlist-layout{
+        margin-right:0;
+        margin-left: 0;
+    }
+    .div-playlist{
+        margin-left:0.5rem;
+        margin-right: 0.5rem;
+    }
+}
