@@ -2,11 +2,12 @@ import axios from "axios";
 import { useState, useContext, createContext, useEffect } from "react";
 
 
+
 const AuthContext = createContext();
 
 
 async function loginService(username, password) {
-    return axios.post('https://video-lib-backend.herokuapp.com//users/login/',
+    return axios.post('https://video-lib-backend.herokuapp.com/users/login/',
         {
             user: {
                 username: username,
