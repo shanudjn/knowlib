@@ -20,16 +20,16 @@ export function Login() {
 
     async function handleUserLogin(e) {
         e.preventDefault();
-
+        console.log("indie handle login")
         await loginUserWithCredentials(username, password)
         console.log(isUserLoggedIn)
 
-        console.log("state", state)
+
         navigate(state?.from ? state.from : "/");
         // navigate(-1)
 
     }
-    console.log(playlist)
+
 
     return (
         <>

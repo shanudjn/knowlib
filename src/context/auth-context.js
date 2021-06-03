@@ -6,15 +6,7 @@ import { useState, useContext, createContext, useEffect } from "react";
 const AuthContext = createContext();
 
 
-async function loginService(username, password) {
-    return axios.post('https://video-lib-backend.herokuapp.com/users/login/',
-        {
-            user: {
-                username: username,
-                password: password
-            }
-        });
-}
+
 
 export function AuthProvider({ children }) {
 
@@ -42,13 +34,24 @@ export function AuthProvider({ children }) {
 
 
     }
+    async function loginService(username, password) {
+        const loginServiceResponse = await axios.post('https://video-lib-backend.herokuapp.com/users/login',
+            {
+                user: {
+                    username: username,
+                    password: password
+                }
+            });
+        return loginServiceResponse
+    }
 
     async function loginUserWithCredentials(username, password) {
-
+        console.log("inside login user with creds")
         try {
             const response = await loginService(username, password);
             console.log(response)
             if (response.status === 200) {
+                console.log("response 200")
                 loginUser(response.data.token)
                 return true;
             }

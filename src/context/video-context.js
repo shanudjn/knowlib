@@ -14,7 +14,7 @@ export function VideoProvider({ children }) {
 
     async function getVideos() {
         try {
-            const response = await axios.get("https://video-lib-backend.herokuapp.com/videos");
+            const response = await axios.get("https://video-lib-backend.herokuapp.com/videos/");
             if (response.status === 200) {
 
                 dispatch({ type: "INITIALIZE_ALL_VIDEOS", payload: { videos: response.data.videos } })
@@ -24,8 +24,9 @@ export function VideoProvider({ children }) {
         }
     }
 
-    async function getPlaylists() {
 
+    async function getPlaylists() {
+        console.log("token", token)
         try {
 
             const response = await axios.get("https://video-lib-backend.herokuapp.com/playlist/",

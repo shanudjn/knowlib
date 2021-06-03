@@ -24,23 +24,26 @@ export function PlaylistModal({ showModal, videoId, handleShowModal }) {
         if (modalInput === "") return;
 
         try {
+            console.log("indie create try block", modalInput)
+
             const createNewPlaylistResponse = await axios.post('https://video-lib-backend.herokuapp.com/playlist/', { playlistName: modalInput }, { headers: { authorization: `Bearer ${token}` } })
             console.log({ createNewPlaylistResponse })
             const newPlaylist = createNewPlaylistResponse.data.playlist
             console.log(newPlaylist)
             const playlistId = createNewPlaylistResponse.data.playlist._id
+            console.log("createNewPlaylistResponse", playlistId)
+            console.log("waiting to dispatch")
 
-            const addVideoToNewPlaylist = await axios.post(`https://video-lib-backend.herokuapp.com/playlist/${playlistId}`, { playlistName: modalInput, videoId: video._id }, { headers: { authorization: `Bearer ${token}` } })
-            console.log({ addVideoToNewPlaylist })
-            if (createNewPlaylistResponse.status === 200 && addVideoToNewPlaylist.status === 200) {
-
+            // const addVideoToNewPlaylist = await axios.post(`https://video-lib-backend.herokuapp.com/playlist/${playlistId}`, { playlistName: modalInput, videoId: video._id }, { headers: { authorization: `Bearer ${token}` } })
+            // console.log({ addVideoToNewPlaylist })
+            if (createNewPlaylistResponse.status === 200) { // && addVideoToNewPlaylist.status === 200
                 // dispatch({ type: "ADD_PLAYLIST", payload: { playlistName: modalInput, video: video } })
                 dispatch({ type: "ADD_PLAYLIST", payload: { newPlaylist: newPlaylist } })
 
                 setModalInput("");
             }
         } catch (error) {
-            console.log(error)
+            console.log(error.message)
         }
 
     }

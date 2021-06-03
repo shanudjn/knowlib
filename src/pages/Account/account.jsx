@@ -9,7 +9,7 @@ function Account() {
 
 
     async function deletePlaylist(playlistId) {
-        console.log(playlistId);
+        console.log("playlisttobedeletedId", playlistId);
         try {
             const deletePlaylistResponse = await axios.delete(`https://video-lib-backend.herokuapp.com/playlist/${playlistId}`, { headers: { authorization: `Bearer ${token}` } })
             console.log(deletePlaylistResponse)
@@ -39,7 +39,7 @@ function Account() {
                             return (
                                 <div key={playlistItem._id} className="div-playlist">
                                     <span>{playlistItem.playlistName}</span>
-                                    <span class="material-icons delete-button" onClick={() => deletePlaylist(playlistItem._id)}>
+                                    <span className="material-icons delete-button" onClick={() => deletePlaylist(playlistItem._id)}>
                                         delete
                                     </span>
                                 </div>
