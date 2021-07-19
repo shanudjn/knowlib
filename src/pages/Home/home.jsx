@@ -3,28 +3,33 @@ import { useState } from "react"
 import { useVideo } from '../../context/video-context';
 import { Topics } from '../../components/Topics/Topics'
 import { VideoCard } from '../../components/VideoCard/VideoCard'
+import { useAuth } from '../../context/auth-context';
 
 
 export function Home() {
-    const { videoList, searchTerm } = useVideo();
+    const { videoList, searchTerm, dispatch } = useVideo();
+    const { isUserLoggedIn } = useAuth()
 
     const [filter, setFilter] = useState("");
 
     function handleSetFilter(e) {
+        console.log("handleSetFilter")
+        dispatch({ type: "SET_SEARCH_TERM", payload: "" })
+
         setFilter(e);
     }
 
     function getSearchData(videoList, searchTerm) {
-        console.log("inside search")
-        return videoList.filter(item => {
-            console.log(item.title)
-            if (item.title.includes(searchTerm) === true || item.channel.includes(searchTerm) === true) {
-                console.log("note hre", item)
-                return item
 
-            }
-            return null
-        })
+        const searchKey = searchTerm?.searchBarInput
+        if (searchKey) {
+
+            const searchedList = videoList.filter(item => item.title.toLowerCase().includes(searchKey) === true)
+            return searchedList
+        }
+        else {
+            return videoList
+        }
     }
 
     function getFilteredList(videoList, filter) {
@@ -36,11 +41,11 @@ export function Home() {
 
 
 
-    // const searchedData = getSearchData(videoList, searchTerm)
+    const searchedData = getSearchData(videoList, searchTerm)
+    console.log("searched data", searchedData)
+    const filteredList = getFilteredList(searchedData, filter);
 
-    const filteredList = getFilteredList(videoList, filter);
-
-    console.log(filteredList)
+    console.log("filtered", filteredList)
     return (
         <>
             <Topics handleSetFilter={handleSetFilter} />

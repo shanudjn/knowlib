@@ -13,6 +13,7 @@ import { Sidebar } from './components/Sidebar/Sidebar';
 import NavbarMobile from './components/Navbar-Mobile/NavbarMobile';
 import PlaylistDetail from './pages/PlaylistDetail/playlist-detail';
 import Account from './pages/Account/account';
+import Signup from './pages/Signup/Signup';
 
 function App() {
   return (
@@ -25,6 +26,8 @@ function App() {
         <Route path="/saved" element={<Saved />} />
         <Route path="/videopage/:videoId" element={<Video />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+
         <PrivateRoute path="/playlist" element={<Playlist />} />
         <PrivateRoute path="/playlist/:playlistId" element={<PlaylistDetail />} />
         <PrivateRoute path="/account" element={<Account />} />

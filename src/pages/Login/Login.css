@@ -35,6 +35,9 @@
     color:var(--white);
     
 }
+.signup-section a{
+    color : var(--primary-color)
+}
 
 
 @media screen and (max-width:1300px) {
@@ -60,6 +63,7 @@
         color:var(--white);
         
     }
+    
     /* .div-playlist-layout{
         margin-right:0;
         margin-left: 0;

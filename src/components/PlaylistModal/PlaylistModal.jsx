@@ -24,9 +24,11 @@ export function PlaylistModal({ showModal, videoId, handleShowModal }) {
         if (modalInput === "") return;
 
         try {
-            console.log("indie create try block", modalInput)
+            console.log("inside create try block", modalInput)
 
             const createNewPlaylistResponse = await axios.post('https://video-lib-backend.herokuapp.com/playlist/', { playlistName: modalInput }, { headers: { authorization: `Bearer ${token}` } })
+            // const createNewPlaylistResponse = await axios.post('https://localhost:3000/playlist/', { playlistName: modalInput }, { headers: { authorization: `Bearer ${token}` } })
+
             console.log({ createNewPlaylistResponse })
             const newPlaylist = createNewPlaylistResponse.data.playlist
             console.log(newPlaylist)
@@ -125,7 +127,7 @@ export function PlaylistModal({ showModal, videoId, handleShowModal }) {
         { showModal } && <div className={showModal ? "modal" : "modal hide"}>
             <div className="playlist-heading"><span>Playlists</span><span className="material-icons button-modal-close" onClick={handleShowModal}>
                 close
-                </span>
+            </span>
             </div>
 
             {

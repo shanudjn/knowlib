@@ -1,10 +1,41 @@
 import { useVideo } from '../../context/video-context';
 
+import axios from "axios"
 import { Link } from 'react-router-dom';
 
 import './playlist.css'
+import { useEffect } from 'react';
+import { useAuth } from '../../context/auth-context';
 
 export function Playlist() {
+    // const { dispatch } = useVideo();
+    // const { token } = useAuth();
+
+    // async function getPlaylists() {
+    //     console.log("token", token)
+    //     if (token !== "") {
+    //         try {
+    //             // const response = await axios.get("http://localhost:8080/playlist/",
+
+    //             const response = await axios.get("https://video-lib-backend.herokuapp.com/playlist/",
+
+    //                 { headers: { authorization: `Bearer ${token}` } }
+    //             );
+    //             // console.log(response)
+    //             if (response.status === 200) {
+    //                 // console.log("playlist", response.data.playlist)
+    //                 dispatch({ type: "INITIALIZE_ALL_PLAYLIST", payload: { playlist: response.data.playlist } })
+    //             }
+    //         } catch (error) {
+    //             console.log(error)
+    //         }
+    //     }
+    // }
+    // useEffect(() => {
+    //     getPlaylists();
+    // }, [token])
+
+
 
     const { playlist } = useVideo();
 

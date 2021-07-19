@@ -16,7 +16,6 @@ export function VideoProvider({ children }) {
         try {
             const response = await axios.get("https://video-lib-backend.herokuapp.com/videos/");
             if (response.status === 200) {
-
                 dispatch({ type: "INITIALIZE_ALL_VIDEOS", payload: { videos: response.data.videos } })
             }
         } catch (error) {
@@ -27,9 +26,12 @@ export function VideoProvider({ children }) {
 
     async function getPlaylists() {
         console.log("token", token)
+        // if (token !== "") {
         try {
 
             const response = await axios.get("https://video-lib-backend.herokuapp.com/playlist/",
+                // const response = await axios.get("http://localhost:8080/playlist/",
+
                 { headers: { authorization: `Bearer ${token}` } }
             );
             // console.log(response)
@@ -40,6 +42,7 @@ export function VideoProvider({ children }) {
         } catch (error) {
             console.log(error)
         }
+        // }
     }
 
     useEffect(() => {
@@ -48,7 +51,11 @@ export function VideoProvider({ children }) {
     }, [])
 
     useEffect(() => {
-        getPlaylists();
+        console.log("calling playlist")
+        if (token !== null) {
+            getPlaylists();
+        }
+        else return;
     }, [token])
 
 
