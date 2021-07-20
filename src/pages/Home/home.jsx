@@ -4,6 +4,7 @@ import { useVideo } from '../../context/video-context';
 import { Topics } from '../../components/Topics/Topics'
 import { VideoCard } from '../../components/VideoCard/VideoCard'
 import { useAuth } from '../../context/auth-context';
+import Loader from "react-loader-spinner";
 
 
 export function Home() {
@@ -49,7 +50,25 @@ export function Home() {
     return (
         <>
             <Topics handleSetFilter={handleSetFilter} />
+            {(filteredList.length === 0) && <Loader
+                type="Puff"
+                color="#09D3AC"
+                height={100}
+                width={100}
+                timeout={3000} //3 secs
+                style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+            />}
             <div className="video-grid">
+                {/* {
+                    <Loader
+                        type="Puff"
+                        color="#00BFFF"
+                        height={100}
+                        width={100}
+                        timeout={3000} //3 secs
+                    />
+                } */}
+
                 {
                     filteredList.map((video) => <VideoCard video={video} key={video.videoId} />)
                 }
