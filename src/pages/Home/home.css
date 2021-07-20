@@ -5,9 +5,14 @@
     margin-right: 10rem;
     position: relative;
     top:2rem;
-    margin-bottom: 6rem;
-   
+    margin-bottom: 6rem;   
  
+}
+.loader{
+    display: "flex"; 
+    align-items: "center";
+    justify-content: "center";
+    margin-top: 8rem;
 }
 @media screen and (max-width:1300px) {
     .video-grid{       

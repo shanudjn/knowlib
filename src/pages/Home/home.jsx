@@ -56,7 +56,8 @@ export function Home() {
                 height={100}
                 width={100}
                 timeout={3000} //3 secs
-                style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+
+                className="loader"
             />}
             <div className="video-grid">
                 {/* {
