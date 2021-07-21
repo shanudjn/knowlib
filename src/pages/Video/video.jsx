@@ -41,7 +41,11 @@ export function Video() {
     useEffect(() => {
         (async function () {
             try {
+                console.log("video id for fetching notes", videoDetails.videoId)
                 const response = await axios.get(`https://video-lib-backend.herokuapp.com/notes/${videoDetails._id}`, { headers: { authorization: `Bearer ${token}` } });
+                // const response = await axios.get(`https://video-lib-backend.herokuapp.com/notes/${videoDetails.videoId}`, { headers: { authorization: `Bearer ${token}` } });
+
+                console.log(response)
                 console.log(response.data.notes.notes)
                 setNotes(response.data.notes.notes)
 
