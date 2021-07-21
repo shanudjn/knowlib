@@ -11,6 +11,7 @@ export function Login() {
 
     const [username, setUserName] = useState("test");
     const [password, setPassword] = useState("qwerty");
+    const [loginButtonText, setLoginButtonText] = useState("Login")
 
     const [isLoggingIn, setIsLogginIn] = useState(false)
 
@@ -22,6 +23,7 @@ export function Login() {
 
     async function handleUserLogin(e) {
         e.preventDefault();
+        setLoginButtonText("Logging In...")
         // console.log("indie handle login")
         await loginUserWithCredentials(username, password)
         // console.log(isUserLoggedIn)
@@ -44,7 +46,7 @@ export function Login() {
                         <form className="form-login" action="">
                             <input className="form-input" type="text" placeholder="Username : test" id="username" onChange={(e) => setUserName(e.target.value)} value={username} />
                             <input className="form-input" type="password" placeholder="Password : qwerty" id="password" onChange={(e) => setPassword(e.target.value)} value={password} />
-                            <button className="login-button">{"Login"}</button>
+                            <button className="login-button">{loginButtonText}</button>
                         </form>
                         <p className="signup-section">New user ? <Link to={`/signup`}>Signup</Link> here</p>
                     </div>
