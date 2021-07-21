@@ -8,13 +8,13 @@ export function reducer(state, action) {
                 savedList: [...state.savedList, action.payload]
             }
         case "ADD_PLAYLIST":
-            console.log(action.payload)
+            // console.log(action.payload)
             return {
                 ...state,
                 playlist: [...state.playlist, { ...action.payload.newPlaylist }]
             }
         case "DELETE_PLAYLIST":
-            console.log("inside REDUCER delete playlist ", action.payload)
+            // console.log("inside REDUCER delete playlist ", action.payload)
 
             const updatedPlaylistAfterDelete = state.playlist.filter((item) => item._id !== action.payload.playlistId)
             console.log(updatedPlaylistAfterDelete)
@@ -24,7 +24,7 @@ export function reducer(state, action) {
             }
 
         case "REMOVE_FROM_PLAYLIST":
-            console.log("Removefrom playlist", action.payload)
+            // console.log("Removefrom playlist", action.payload)
 
             const updatedPlaylist = state.playlist.map((item) => (item.playlistName === action.payload.playlistName)
                 ? { ...item, videos: item.videos.filter((filterItem) => filterItem.videoId !== action.payload.video.videoId) }
@@ -41,7 +41,7 @@ export function reducer(state, action) {
                 )
             }
         case "ADD_TO_PLAYLIST":
-            console.log("inside add to playlist")
+            // console.log("inside add to playlist")
             return {
                 ...state,
                 playlist: state.playlist.map((item) => (item.playlistName === action.payload.playlistName)

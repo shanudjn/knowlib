@@ -46,12 +46,12 @@ export function AuthProvider({ children }) {
     }
 
     async function loginUserWithCredentials(username, password) {
-        console.log("inside login user with creds")
+        // console.log("inside login user with creds")
         try {
             const response = await loginService(username, password);
-            console.log(response)
+            // console.log(response)
             if (response.status === 200) {
-                console.log("response 200")
+                // console.log("response 200")
                 loginUser(response.data.token)
                 return true;
             }
@@ -61,7 +61,7 @@ export function AuthProvider({ children }) {
     }
 
     function logoutUser() {
-        console.log("Loging out");
+        // console.log("Loging out");
         localStorage?.removeItem("login")
         setIsUserLoggedIn(false);
         setToken(null)

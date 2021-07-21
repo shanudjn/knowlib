@@ -14,7 +14,7 @@ export function Home() {
     const [filter, setFilter] = useState("");
 
     function handleSetFilter(e) {
-        console.log("handleSetFilter")
+        // console.log("handleSetFilter")
         dispatch({ type: "SET_SEARCH_TERM", payload: "" })
 
         setFilter(e);
@@ -43,10 +43,10 @@ export function Home() {
 
 
     const searchedData = getSearchData(videoList, searchTerm)
-    console.log("searched data", searchedData)
+    // console.log("searched data", searchedData)
     const filteredList = getFilteredList(searchedData, filter);
 
-    console.log("filtered", filteredList)
+    // console.log("filtered", filteredList)
     return (
         <>
             <Topics handleSetFilter={handleSetFilter} />
@@ -55,7 +55,7 @@ export function Home() {
                 color="#09D3AC"
                 height={100}
                 width={100}
-                timeout={3000} //3 secs
+                timeout={7000} //3 secs
 
                 className="loader"
             />}

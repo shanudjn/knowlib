@@ -22,16 +22,16 @@ export function Login() {
 
     async function handleUserLogin(e) {
         e.preventDefault();
-        console.log("indie handle login")
+        // console.log("indie handle login")
         await loginUserWithCredentials(username, password)
-        console.log(isUserLoggedIn)
+        // console.log(isUserLoggedIn)
         setIsLogginIn(true)
         navigate(state?.from ? state.from : "/");
         // navigate(-1)
 
     }
 
-    console.log(isLoggingIn)
+    // console.log(isLoggingIn)
     return (
         <>
 

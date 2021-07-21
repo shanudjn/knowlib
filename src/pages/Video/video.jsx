@@ -41,16 +41,16 @@ export function Video() {
     useEffect(() => {
         (async function () {
             try {
-                console.log("video id for fetching notes", videoDetails.videoId)
+                // console.log("video id for fetching notes", videoDetails.videoId)
                 const response = await axios.get(`https://video-lib-backend.herokuapp.com/notes/${videoDetails._id}`, { headers: { authorization: `Bearer ${token}` } });
                 // const response = await axios.get(`https://video-lib-backend.herokuapp.com/notes/${videoDetails.videoId}`, { headers: { authorization: `Bearer ${token}` } });
 
-                console.log(response)
-                console.log(response.data.notes.notes)
+                // console.log(response)
+                // console.log(response.data.notes.notes)
                 setNotes(response.data.notes.notes)
 
             } catch (error) {
-                console.log(error)
+                // console.log(error)
             }
         })()
     }, [])
@@ -63,20 +63,20 @@ export function Video() {
     }
 
     async function addNewNote() {
-        console.log("inside add New note")
+        // console.log("inside add New note")
         const addNewNoteResponse = await axios.post(`https://video-lib-backend.herokuapp.com/notes/${videoDetails._id}`, { note: notesInput }, { headers: { authorization: `Bearer ${token}` } })
-        console.log(addNewNoteResponse)
+        // console.log(addNewNoteResponse)
         if (addNewNoteResponse.status === 200) {
             setNotes((videoNotes) => videoNotes.concat(notesInput))
         }
     }
     async function updateNotes() {
-        console.log("inside update notes")
+        // console.log("inside update notes")
         const updateNoteResponse = await axios.put(`https://video-lib-backend.herokuapp.com/notes/${videoDetails._id}`, { note: notesInput }, { headers: { authorization: `Bearer ${token}` } })
         if (updateNoteResponse.status === 200) {
             setNotes((videoNotes) => videoNotes.concat(notesInput))
         }
-        console.log(updateNoteResponse)
+        // console.log(updateNoteResponse)
     }
 
     function handleAddNote(e) {
@@ -85,20 +85,20 @@ export function Video() {
             navigate('/login')
             return
         }
-        console.log("add user now")
+        // console.log("add user now")
         if (videoNotes.length === 0) {
-            console.log("enter note for the first time")
+            // console.log("enter note for the first time")
             addNewNote();
             return
         }
-        console.log("addd to notes here")
+        // console.log("addd to notes here")
         updateNotes()
         // setNotes(videoNotes.concat({ id: v4(), notes: notesInput }))
         // setNotesInput("")
 
     }
 
-    console.log(videoNotes)
+    // console.log(videoNotes)
     return (
         <>
             {/* <Navbar /> */}

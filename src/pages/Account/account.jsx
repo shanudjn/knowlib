@@ -9,12 +9,12 @@ function Account() {
 
 
     async function deletePlaylist(playlistId) {
-        console.log("playlisttobedeletedId", playlistId);
+        // console.log("playlisttobedeletedId", playlistId);
         try {
             const deletePlaylistResponse = await axios.delete(`https://video-lib-backend.herokuapp.com/playlist/${playlistId}`, { headers: { authorization: `Bearer ${token}` } })
-            console.log(deletePlaylistResponse)
+            // console.log(deletePlaylistResponse)
             if (deletePlaylistResponse.status === 200) {
-                console.log("playlist is deleted, now delete it from state");
+                // console.log("playlist is deleted, now delete it from state");
                 dispatch({ type: "DELETE_PLAYLIST", payload: { playlistId: playlistId } })
             }
         } catch (error) {

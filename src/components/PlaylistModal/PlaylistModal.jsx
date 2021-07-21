@@ -19,22 +19,22 @@ export function PlaylistModal({ showModal, videoId, handleShowModal }) {
     async function createPlaylist(e) {
         e.preventDefault();
         const video = videoList.find((item) => item.videoId === videoId)
-        // console.log(video)
+        console.log(video)
 
         if (modalInput === "") return;
 
         try {
-            console.log("inside create try block", modalInput)
+            // console.log("inside create try block", modalInput)
 
             const createNewPlaylistResponse = await axios.post('https://video-lib-backend.herokuapp.com/playlist/', { playlistName: modalInput }, { headers: { authorization: `Bearer ${token}` } })
             // const createNewPlaylistResponse = await axios.post('https://localhost:3000/playlist/', { playlistName: modalInput }, { headers: { authorization: `Bearer ${token}` } })
 
-            console.log({ createNewPlaylistResponse })
+            // console.log({ createNewPlaylistResponse })
             const newPlaylist = createNewPlaylistResponse.data.playlist
-            console.log(newPlaylist)
+            // console.log(newPlaylist)
             const playlistId = createNewPlaylistResponse.data.playlist._id
-            console.log("createNewPlaylistResponse", playlistId)
-            console.log("waiting to dispatch")
+            // console.log("createNewPlaylistResponse", playlistId)
+            // console.log("waiting to dispatch")
 
             // const addVideoToNewPlaylist = await axios.post(`https://video-lib-backend.herokuapp.com/playlist/${playlistId}`, { playlistName: modalInput, videoId: video._id }, { headers: { authorization: `Bearer ${token}` } })
             // console.log({ addVideoToNewPlaylist })
@@ -45,7 +45,7 @@ export function PlaylistModal({ showModal, videoId, handleShowModal }) {
                 setModalInput("");
             }
         } catch (error) {
-            console.log(error.message)
+            // console.log(error.message)
         }
 
     }
@@ -67,13 +67,13 @@ export function PlaylistModal({ showModal, videoId, handleShowModal }) {
 
     }
     function checkInPlaylist(playlistName, videoId) {
-        console.log(playlistName, videoId)
+        // console.log(playlistName, videoId)
         const videos = playlist.find(item => item.playlistName === playlistName).videos;
-        console.log(videos)
+        // console.log(videos)
         const foundVideo = videos.filter((item) => item.videoId === videoId)
-        console.log(foundVideo)
+        // console.log(foundVideo)
         if (foundVideo.length !== 0) {
-            console.log("video is present")
+            // console.log("video is present")
             return true
         }
         return false;
@@ -89,33 +89,33 @@ export function PlaylistModal({ showModal, videoId, handleShowModal }) {
                 dispatch({ type: "ADD_TO_PLAYLIST", payload: { video: video, playlistName: playlistName } })
             }
         } catch (error) {
-            console.log(error)
+            // console.log(error)
         }
 
     }
 
     async function removeFromPlaylist(video, playlistName, playlistId) {
-        console.log("remove from playlist triggered")
-        console.log(video._id, playlistName, playlistId)
+        // console.log("remove from playlist triggered")
+        // console.log(video._id, playlistName, playlistId)
         try {
-            console.log("inside removeFromAplaylist", video)
+            // console.log("inside removeFromAplaylist", video)
             const removeFromPlaylistResponse = await axios.delete(`https://video-lib-backend.herokuapp.com/playlist/${playlistId}/${video._id}`, { headers: { authorization: `Bearer ${token}` } })
             if (removeFromPlaylistResponse.status === 200) {
-                console.log("removed from playlist")
+                // console.log("removed from playlist")
                 dispatch({ type: "REMOVE_FROM_PLAYLIST", payload: { video: video, playlistName: playlistName } })
             }
         } catch (error) {
-            console.log(error)
+            // console.log(error)
         }
 
     }
 
     function handleCheckbox(playlistName, playlistId) {
-        console.log("inside handleCheckbox", playlistName, playlistId)
+        // console.log("inside handleCheckbox", playlistName, playlistId)
         const video = videoList.find((item) => item.videoId === videoId)
         // console.log(video)
         const isVideoInPlaylist = checkInPlaylist(playlistName, videoId);
-        console.log(isVideoInPlaylist)
+        // console.log(isVideoInPlaylist)
         if (isVideoInPlaylist === true) { removeFromPlaylist(video, playlistName, playlistId) }
         else {
             addToPlaylist(video, playlistName, playlistId)

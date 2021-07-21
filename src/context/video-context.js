@@ -25,7 +25,7 @@ export function VideoProvider({ children }) {
 
 
     async function getPlaylists() {
-        console.log("token", token)
+        // console.log("token", token)
         // if (token !== "") {
         try {
 
@@ -50,13 +50,14 @@ export function VideoProvider({ children }) {
 
     }, [])
 
-    useEffect(() => {
-        console.log("calling playlist")
-        if (token !== null) {
-            getPlaylists();
-        }
-        else return;
-    }, [token])
+    // useEffect(() => {
+    //     if (token !== null) {
+    //         console.log("calling playlist")
+
+    //         getPlaylists();
+    //     }
+    //     else return;
+    // }, [token])
 
 
 

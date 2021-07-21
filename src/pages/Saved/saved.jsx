@@ -6,7 +6,7 @@ import { useVideo } from '../../context/video-context'
 export function Saved() {
 
     const { saved } = useVideo();
-    console.log(saved)
+    // console.log(saved)
 
     return (
         <div className="div-saved">

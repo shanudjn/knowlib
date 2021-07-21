@@ -15,7 +15,7 @@ function Signup() {
 
 
     async function signupService() {
-        console.log(username, email, password)
+        // console.log(username, email, password)
         try {
             const signupServiceResponse = await axios.post('https://video-lib-backend.herokuapp.com/users/register',
                 {
@@ -25,10 +25,10 @@ function Signup() {
                         password: password,
                     }
                 });
-            console.log(signupServiceResponse)
+            // console.log(signupServiceResponse)
             return signupServiceResponse
         } catch (error) {
-            console.log(error)
+            // console.log(error)
         }
 
     }
@@ -36,7 +36,7 @@ function Signup() {
     async function handleUserSignup(e) {
         e.preventDefault();
         const response = await signupService()
-        console.log(response)
+        // console.log(response)
 
         if (response.status === 201) {
             navigate(state?.from ? state.from : "/");

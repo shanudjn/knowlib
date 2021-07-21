@@ -8,7 +8,7 @@ export function Searchbar() {
 
     const { dispatch } = useVideo();
     function handleSearch(e) {
-        console.log(searchBarInput)
+        // console.log(searchBarInput)
         e.preventDefault()
         dispatch({ type: "SET_SEARCH_TERM", payload: { searchBarInput } })
     }

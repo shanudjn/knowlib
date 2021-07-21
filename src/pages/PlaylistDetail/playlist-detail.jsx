@@ -9,7 +9,7 @@ function PlaylistDetail() {
     // const [playlistVideos, setPlaylistVideos] = useState([]);
 
     function getPlaylistById(playlist) {
-        console.log(playlistId)
+        // console.log(playlistId)
         return playlist.find((item) => item._id === playlistId)
 
 
@@ -18,7 +18,7 @@ function PlaylistDetail() {
 
 
     const playlistVideos = getPlaylistById(playlist)
-    console.log(playlistVideos.videos)
+    // console.log(playlistVideos.videos)
     return (
         <>
             <p>{playlistVideos.playlistName}</p>
