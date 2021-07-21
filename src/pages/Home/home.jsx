@@ -55,20 +55,12 @@ export function Home() {
                 color="#09D3AC"
                 height={100}
                 width={100}
-                timeout={7000} //3 secs
-
+                // timeout={000} //3 secs
                 className="loader"
-            />}
+            />
+            }
             <div className="video-grid">
-                {/* {
-                    <Loader
-                        type="Puff"
-                        color="#00BFFF"
-                        height={100}
-                        width={100}
-                        timeout={3000} //3 secs
-                    />
-                } */}
+
 
                 {
                     filteredList.map((video) => <VideoCard video={video} key={video.videoId} />)
