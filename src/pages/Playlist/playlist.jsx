@@ -17,7 +17,7 @@ export function Playlist() {
             try {
                 // const response = await axios.get("http://localhost:8080/playlist/",
 
-                const response = await axios.get("https://video-lib-backend.herokuapp.com/playlist/",
+                const response = await axios.get("https://video-library-backend.onrender.com/playlist/",
 
                     { headers: { authorization: `Bearer ${token}` } }
                 );

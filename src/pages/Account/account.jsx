@@ -11,7 +11,7 @@ function Account() {
     async function deletePlaylist(playlistId) {
         // console.log("playlisttobedeletedId", playlistId);
         try {
-            const deletePlaylistResponse = await axios.delete(`https://video-lib-backend.herokuapp.com/playlist/${playlistId}`, { headers: { authorization: `Bearer ${token}` } })
+            const deletePlaylistResponse = await axios.delete(`https://video-library-backend.onrender.com/playlist/${playlistId}`, { headers: { authorization: `Bearer ${token}` } })
             // console.log(deletePlaylistResponse)
             if (deletePlaylistResponse.status === 200) {
                 // console.log("playlist is deleted, now delete it from state");

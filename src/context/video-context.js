@@ -14,7 +14,7 @@ export function VideoProvider({ children }) {
 
     async function getVideos() {
         try {
-            const response = await axios.get("https://video-lib-backend.herokuapp.com/videos/");
+            const response = await axios.get("https://video-library-backend.onrender.com/videos/");
             if (response.status === 200) {
                 dispatch({ type: "INITIALIZE_ALL_VIDEOS", payload: { videos: response.data.videos } })
             }
@@ -29,7 +29,7 @@ export function VideoProvider({ children }) {
         // if (token !== "") {
         try {
 
-            const response = await axios.get("https://video-lib-backend.herokuapp.com/playlist/",
+            const response = await axios.get("https://video-library-backend.onrender.com/playlist/",
                 // const response = await axios.get("http://localhost:8080/playlist/",
 
                 { headers: { authorization: `Bearer ${token}` } }

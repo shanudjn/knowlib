@@ -42,8 +42,8 @@ export function Video() {
         (async function () {
             try {
                 // console.log("video id for fetching notes", videoDetails.videoId)
-                const response = await axios.get(`https://video-lib-backend.herokuapp.com/notes/${videoDetails._id}`, { headers: { authorization: `Bearer ${token}` } });
-                // const response = await axios.get(`https://video-lib-backend.herokuapp.com/notes/${videoDetails.videoId}`, { headers: { authorization: `Bearer ${token}` } });
+                const response = await axios.get(`https://video-library-backend.onrender.com/notes/${videoDetails._id}`, { headers: { authorization: `Bearer ${token}` } });
+                // const response = await axios.get(`https://video-library-backend.onrender.com/notes/${videoDetails.videoId}`, { headers: { authorization: `Bearer ${token}` } });
 
                 // console.log(response)
                 // console.log(response.data.notes.notes)
@@ -64,7 +64,7 @@ export function Video() {
 
     async function addNewNote() {
         // console.log("inside add New note")
-        const addNewNoteResponse = await axios.post(`https://video-lib-backend.herokuapp.com/notes/${videoDetails._id}`, { note: notesInput }, { headers: { authorization: `Bearer ${token}` } })
+        const addNewNoteResponse = await axios.post(`https://video-library-backend.onrender.com/notes/${videoDetails._id}`, { note: notesInput }, { headers: { authorization: `Bearer ${token}` } })
         // console.log(addNewNoteResponse)
         if (addNewNoteResponse.status === 200) {
             setNotes((videoNotes) => videoNotes.concat(notesInput))
@@ -72,7 +72,7 @@ export function Video() {
     }
     async function updateNotes() {
         // console.log("inside update notes")
-        const updateNoteResponse = await axios.put(`https://video-lib-backend.herokuapp.com/notes/${videoDetails._id}`, { note: notesInput }, { headers: { authorization: `Bearer ${token}` } })
+        const updateNoteResponse = await axios.put(`https://video-library-backend.onrender.com/notes/${videoDetails._id}`, { note: notesInput }, { headers: { authorization: `Bearer ${token}` } })
         if (updateNoteResponse.status === 200) {
             setNotes((videoNotes) => videoNotes.concat(notesInput))
         }

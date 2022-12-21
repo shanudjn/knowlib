@@ -26,7 +26,7 @@ export function PlaylistModal({ showModal, videoId, handleShowModal }) {
         try {
             // console.log("inside create try block", modalInput)
 
-            const createNewPlaylistResponse = await axios.post('https://video-lib-backend.herokuapp.com/playlist/', { playlistName: modalInput }, { headers: { authorization: `Bearer ${token}` } })
+            const createNewPlaylistResponse = await axios.post('https://video-library-backend.onrender.com/playlist/', { playlistName: modalInput }, { headers: { authorization: `Bearer ${token}` } })
             // const createNewPlaylistResponse = await axios.post('https://localhost:3000/playlist/', { playlistName: modalInput }, { headers: { authorization: `Bearer ${token}` } })
 
             // console.log({ createNewPlaylistResponse })
@@ -36,7 +36,7 @@ export function PlaylistModal({ showModal, videoId, handleShowModal }) {
             // console.log("createNewPlaylistResponse", playlistId)
             // console.log("waiting to dispatch")
 
-            // const addVideoToNewPlaylist = await axios.post(`https://video-lib-backend.herokuapp.com/playlist/${playlistId}`, { playlistName: modalInput, videoId: video._id }, { headers: { authorization: `Bearer ${token}` } })
+            // const addVideoToNewPlaylist = await axios.post(`https://video-library-backend.onrender.com/playlist/${playlistId}`, { playlistName: modalInput, videoId: video._id }, { headers: { authorization: `Bearer ${token}` } })
             // console.log({ addVideoToNewPlaylist })
             if (createNewPlaylistResponse.status === 200) { // && addVideoToNewPlaylist.status === 200
                 // dispatch({ type: "ADD_PLAYLIST", payload: { playlistName: modalInput, video: video } })
@@ -82,7 +82,7 @@ export function PlaylistModal({ showModal, videoId, handleShowModal }) {
     async function addToPlaylist(video, playlistName, playlistId) {
         try {
 
-            const addToPlaylistResponse = await axios.post(`https://video-lib-backend.herokuapp.com/playlist/${playlistId}`, { playlistName: modalInput, videoId: video._id }, { headers: { authorization: `Bearer ${token}` } })
+            const addToPlaylistResponse = await axios.post(`https://video-library-backend.onrender.com/playlist/${playlistId}`, { playlistName: modalInput, videoId: video._id }, { headers: { authorization: `Bearer ${token}` } })
 
             if (addToPlaylistResponse.status === 200) {
                 // console.log("add to playlist")
@@ -99,7 +99,7 @@ export function PlaylistModal({ showModal, videoId, handleShowModal }) {
         // console.log(video._id, playlistName, playlistId)
         try {
             // console.log("inside removeFromAplaylist", video)
-            const removeFromPlaylistResponse = await axios.delete(`https://video-lib-backend.herokuapp.com/playlist/${playlistId}/${video._id}`, { headers: { authorization: `Bearer ${token}` } })
+            const removeFromPlaylistResponse = await axios.delete(`https://video-library-backend.onrender.com/playlist/${playlistId}/${video._id}`, { headers: { authorization: `Bearer ${token}` } })
             if (removeFromPlaylistResponse.status === 200) {
                 // console.log("removed from playlist")
                 dispatch({ type: "REMOVE_FROM_PLAYLIST", payload: { video: video, playlistName: playlistName } })

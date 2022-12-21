@@ -17,7 +17,7 @@ function Signup() {
     async function signupService() {
         // console.log(username, email, password)
         try {
-            const signupServiceResponse = await axios.post('https://video-lib-backend.herokuapp.com/users/register',
+            const signupServiceResponse = await axios.post('https://video-library-backend.onrender.com/users/register',
                 {
                     user: {
                         username: username,
