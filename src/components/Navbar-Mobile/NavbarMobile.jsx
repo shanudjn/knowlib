@@ -13,14 +13,6 @@ function NavbarMobile() {
                 </div>
                 <span className='span-link-name'>Home</span>
             </Link>
-            {/* <Link to='/' className='navbar-mobile-link'>
-                <div className="navbar-mobile-item">
-                    <span className="material-icons">
-                        watch_later
-                    </span>
-                </div>
-                <span className='span-link-name'>Watch Later</span>
-            </Link> */}
             <Link to='/playlist' className='navbar-mobile-link'>
                 <div className="navbar-mobile-item">
                     <span className="material-icons">

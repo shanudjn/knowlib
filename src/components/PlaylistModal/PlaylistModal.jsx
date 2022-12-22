@@ -19,12 +19,12 @@ export function PlaylistModal({ showModal, videoId, handleShowModal }) {
     async function createPlaylist(e) {
         e.preventDefault();
         const video = videoList.find((item) => item.videoId === videoId)
-        console.log(video)
+
 
         if (modalInput === "") return;
 
         try {
-            // console.log("inside create try block", modalInput)
+         
 
             const createNewPlaylistResponse = await axios.post('https://video-library-backend.onrender.com/playlist/', { playlistName: modalInput }, { headers: { authorization: `Bearer ${token}` } })
             // const createNewPlaylistResponse = await axios.post('https://localhost:3000/playlist/', { playlistName: modalInput }, { headers: { authorization: `Bearer ${token}` } })
