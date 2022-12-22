@@ -25,8 +25,6 @@ export function VideoProvider({ children }) {
 
 
     async function getPlaylists() {
-        // console.log("token", token)
-        // if (token !== "") {
         try {
 
             const response = await axios.get("https://video-library-backend.onrender.com/playlist/",
