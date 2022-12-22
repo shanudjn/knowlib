@@ -1,13 +1,11 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import { Navbar } from "./components/Navbar/Navbar";
-
 import { Home } from "./pages/Home/home";
 import { Saved } from "./pages/Saved/saved";
 import { Playlist } from "./pages/Playlist/playlist";
 import { Video } from "./pages/Video/video";
 import { Login } from "./pages/Login/Login";
-import PrivateRoute from "./PrivateRoute";
 import { Sidebar } from "./components/Sidebar/Sidebar";
 import NavbarMobile from "./components/Navbar-Mobile/NavbarMobile";
 import PlaylistDetail from "./pages/PlaylistDetail/playlist-detail";
